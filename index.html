@@ -286,6 +286,7 @@ const SHEETS_URLS = {
   VPM_TLS:           'https://docs.google.com/spreadsheets/d/e/2PACX-1vQVSKF8T1yarrXtsLxkXsTXIGeE8sP7b_WdkqQ_sOgDfGd69zQTZqpCPEBhPldT2g/pub?gid=1213409155&single=true&output=csv',
   OBJETIVOS:         'https://docs.google.com/spreadsheets/d/e/2PACX-1vQVSKF8T1yarrXtsLxkXsTXIGeE8sP7b_WdkqQ_sOgDfGd69zQTZqpCPEBhPldT2g/pub?gid=858596540&single=true&output=csv',
   PARAMETROS:        'https://docs.google.com/spreadsheets/d/e/2PACX-1vQVSKF8T1yarrXtsLxkXsTXIGeE8sP7b_WdkqQ_sOgDfGd69zQTZqpCPEBhPldT2g/pub?gid=1548575786&single=true&output=csv',
+  USUARIOS_SHEET:    'https://docs.google.com/spreadsheets/d/e/2PACX-1vQVSKF8T1yarrXtsLxkXsTXIGeE8sP7b_WdkqQ_sOgDfGd69zQTZqpCPEBhPldT2g/pub?gid=340707753&single=true&output=csv',
 };
 
 // URL del Apps Script para escritura (configurar cuando esté desplegado)
@@ -332,11 +333,13 @@ async function conectarSheets() {
   const statusEl = document.getElementById('sheets-status');
   if (statusEl) statusEl.innerHTML = '⏳ Conectando al Google Sheets...';
   try {
-    const [historico, objetivos, vpm] = await Promise.all([
+    const [historico, objetivos, vpm, usuariosSheet] = await Promise.all([
       cargarHoja('HISTORICO_CIERRES'),
       cargarHoja('OBJETIVOS'),
       cargarHoja('VPM_TLS'),
+      cargarHoja('USUARIOS_SHEET'),
     ]);
+    if (usuariosSheet && usuariosSheet.length > 0) poblarUsuarios(usuariosSheet);
     if (historico && historico.length > 0) poblarDesdeHistorico(historico);
     if (objetivos && objetivos.length > 0) poblarObjetivos(objetivos);
     if (vpm && vpm.length > 0) poblarVPM(vpm);
@@ -346,6 +349,54 @@ async function conectarSheets() {
   } catch(e) {
     if (statusEl) statusEl.innerHTML = '⚠ Sin conexión — datos de ejemplo';
   }
+}
+
+// Poblar usuarios desde hoja USUARIOS del Sheets
+function poblarUsuarios(rows) {
+  rows.forEach(row => {
+    const uid    = (row['UID']    || '').trim();
+    const nombre = (row['NOMBRE'] || '').trim();
+    const tipo   = (row['TIPO']   || '').trim().toLowerCase();
+    const rol    = (row['ROL']    || '').trim();
+    const pass   = (row['PASS']   || '').trim();
+    const un     = (row['UN']     || '').trim();
+
+    if (!uid || !nombre || !tipo || !pass) return;
+
+    // Generar avatar de las iniciales
+    const partes = nombre.split(' ');
+    const avatar = (partes[0]?.[0] || '') + (partes[1]?.[0] || '');
+    const avatarClass = tipo === 'admin' ? 'avatar-admin' : tipo === 'ec' ? 'avatar-ec' : 'avatar-un';
+    const rolFinal = rol || (tipo==='admin'?'Administrador':tipo==='ec'?'Ejecutiva Comercial':'Unidad de Negocio');
+
+    // Agregar o actualizar usuario
+    USUARIOS[uid] = {
+      pass,
+      nombre,
+      rol: rolFinal,
+      tipo,
+      avatar: avatar.toUpperCase(),
+      avatarClass,
+      ...(un ? {un} : {}),
+    };
+  });
+
+  // Actualizar el select del login con los nuevos usuarios
+  actualizarSelectLoginSheets();
+}
+
+// Actualizar select del login desde el Sheets (sin depender de renderAdminUsuarios)
+function actualizarSelectLoginSheets() {
+  const sel = document.getElementById('login-user');
+  if (!sel) return;
+  const grupos = { admin:[], ec:[], un:[] };
+  Object.entries(USUARIOS).forEach(([uid,u]) => {
+    if (grupos[u.tipo]) grupos[u.tipo].push({uid, nombre:u.nombre});
+  });
+  sel.innerHTML = `<option value="">Seleccioná tu perfil...</option>
+    <optgroup label="Administración">${grupos.admin.map(u=>`<option value="${u.uid}">${u.nombre}</option>`).join('')}</optgroup>
+    <optgroup label="Ejecutivas Comerciales">${grupos.ec.map(u=>`<option value="${u.uid}">${u.nombre}</option>`).join('')}</optgroup>
+    <optgroup label="Unidades de Negocio">${grupos.un.map(u=>`<option value="${u.uid}">${u.nombre}</option>`).join('')}</optgroup>`;
 }
 
 // Escribir al Sheets via Apps Script
