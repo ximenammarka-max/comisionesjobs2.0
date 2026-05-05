@@ -441,15 +441,25 @@ function poblarDesdeHistorico(rows) {
 }
 
 function poblarObjetivos(rows) {
+  // Poblar tabla de objetivos para renderConfig
+  poblarObjetivosTabla(rows);
+  
+  // También actualizar obj_tls/cnt/irh de cada EC para los cálculos
   rows.forEach(row => {
     const crm = (row['CRM / Vendedor'] || '').trim();
-    const un = (row['UN'] || '').trim().toUpperCase();
-    const ec = ECS.find(e => crm.toUpperCase().includes(e.nombre.toUpperCase().split(' ')[0]));
+    const un  = (row['UN'] || '').trim().toUpperCase();
+    const ec  = ECS.find(e => crm.toUpperCase().includes(e.nombre.toUpperCase().split(' ')[0]));
     if (!ec) return;
-    MESES.forEach((m, i) => {
-      const val = parseFloat((row[m] || '0').replace(/[^0-9.]/g,'')) || 0;
-      if (un === 'TLS' && val > 0) ec.obj_tls = val * 12;
-    });
+    // Sumar todos los meses para tener el objetivo anual
+    const totalAnio = MESES.reduce((s,m) => {
+      const v = parseInt((row[m] || '0').toString().replace(/[^0-9]/g,'')) || 0;
+      return s + v;
+    }, 0);
+    if (totalAnio > 0) {
+      if (un === 'TLS') ec.obj_tls = totalAnio;
+      else if (un === 'CNT') ec.obj_cnt = totalAnio;
+      else if (un === 'IRH') ec.obj_irh = totalAnio;
+    }
   });
 }
 
@@ -1299,24 +1309,81 @@ function renderUNHistorico() { return renderUNResumen(); }
 // ═══════════════════════════════════════════════════════════════════════════
 // CONFIG
 // ═══════════════════════════════════════════════════════════════════════════
+// Almacén de objetivos leídos del Sheets
+const objetivos_sheets = {}; // { 'V|PAMELA GONZALEZ_TLS': [mes1, mes2...] }
+
+function poblarObjetivosTabla(rows) {
+  // Limpiar
+  Object.keys(objetivos_sheets).forEach(k => delete objetivos_sheets[k]);
+  rows.forEach(row => {
+    const crm = (row['CRM / Vendedor'] || '').trim();
+    const un  = (row['UN'] || '').trim().toUpperCase();
+    if (!crm || !un) return;
+    const key = crm + '_' + un;
+    objetivos_sheets[key] = MESES.map(m => {
+      const v = (row[m] || '0').toString().replace(/[^0-9]/g,'');
+      return parseInt(v) || 0;
+    });
+  });
+}
+
+function getObjetivo(ecNombre, un, mesIdx) {
+  // Buscar por nombre en formato V|NOMBRE
+  const crm = 'V|' + ecNombre.toUpperCase();
+  const key = crm + '_' + un;
+  return objetivos_sheets[key]?.[mesIdx] || 0;
+}
+
 function renderConfig() {
+  const UNS_CONFIG = ['TLS','CNT','IRH'];
+  const UN_COLORS  = { TLS: 'var(--jobs-navy)', CNT: 'var(--green)', IRH: '#059669' };
+  const UN_BG      = { TLS: '#ededf7', CNT: '#f0fdf4', IRH: '#f0fdf9' };
+
+  // Determinar si hay datos del Sheets o usar estimados
+  const hayDatos = Object.keys(objetivos_sheets).length > 0;
+
   return `
   <div class="card">
-    <div class="card-header"><div class="card-title">⚙ Objetivos mensuales — TLS 2026</div><div class="card-sub">Cargados por el jefe comercial. Celdas editables.</div></div>
+    <div class="card-header">
+      <div>
+        <div class="card-title">⚙ Objetivos mensuales 2026 — TLS · CNT · iRH</div>
+        <div class="card-sub">${hayDatos ? '✅ Datos cargados desde Google Sheets' : '⚠ Mostrando estimados — cargá los objetivos reales en el Sheets (hoja OBJETIVOS)'}</div>
+      </div>
+    </div>
     <div style="overflow-x:auto">
-      <table style="min-width:900px">
-        <thead><tr><th>Ejecutiva</th>${MESES.map(m=>`<th>${m}</th>`).join('')}<th>Total año</th></tr></thead>
+      <table style="min-width:1100px">
+        <thead>
+          <tr>
+            <th style="width:160px">Ejecutiva</th>
+            <th style="width:50px">Área</th>
+            ${MESES.map(m=>`<th style="text-align:right">${m}</th>`).join('')}
+            <th style="text-align:right">Total año</th>
+          </tr>
+        </thead>
         <tbody>
-          ${ECS.map(ec=>{
-            const m=Math.round(ec.obj_tls/12);
-            return`<tr><td class="td-bold">${ec.nombre}</td>${MESES.map(()=>`<td><input style="width:88px;border:1px dashed var(--jobs-gold);border-radius:4px;padding:3px 6px;font-family:var(--mono);font-size:11px;text-align:right;background:#fffbeb;color:var(--text)" value="${fmtN(m)}"></td>`).join('')}<td class="td-mono td-right td-bold" style="color:var(--jobs-navy)">${fmtN(ec.obj_tls)}</td></tr>`;
-          }).join('')}
+          ${ECS.map(ec => UNS_CONFIG.map(un => {
+            const vals = MESES.map((_,i) => {
+              if (hayDatos) return getObjetivo(ec.nombre, un, i);
+              // fallback estimado
+              const obj = un==='TLS'?ec.obj_tls:un==='CNT'?ec.obj_cnt:ec.obj_irh;
+              return Math.round(obj/12);
+            });
+            const total = vals.reduce((s,v)=>s+v,0);
+            return `<tr>
+              <td class="td-bold" style="font-size:12px">${un==='TLS'?ec.nombre:''}</td>
+              <td><span style="font-size:11px;font-weight:700;color:${UN_COLORS[un]};background:${UN_BG[un]};padding:2px 8px;border-radius:4px">${un}</span></td>
+              ${vals.map(v=>`<td class="td-mono td-right" style="font-size:11px;color:${v>0?'var(--text)':'var(--text3)'}">${v>0?fmtN(v):'—'}</td>`).join('')}
+              <td class="td-mono td-right td-bold" style="color:${UN_COLORS[un]}">${total>0?fmtN(total)+' Gs.':'—'}</td>
+            </tr>`;
+          }).join('')).join('')}
         </tbody>
       </table>
     </div>
-    <div style="padding:12px 16px;border-top:1px solid var(--border);display:flex;justify-content:flex-end"><button class="btn-save" onclick="alert('Guardado ✓')">💾 Guardar objetivos</button></div>
+    <div style="padding:12px 16px;border-top:1px solid var(--border);background:var(--bg3);font-size:11px;color:var(--text3)">
+      ℹ Los objetivos se editan directamente en la hoja <strong>OBJETIVOS</strong> del Google Sheets. El sistema los lee automáticamente al conectarse.
+    </div>
   </div>
-  <div style="background:#ede9fe;border:1px solid #ddd6fe;border-radius:10px;padding:12px 16px;font-size:12px;color:#6d28d9">
+  <div style="background:#ede9fe;border:1px solid #ddd6fe;border-radius:10px;padding:12px 16px;font-size:12px;color:#6d28d9;margin-top:18px">
     🔮 <strong>Próximamente:</strong> Cálculo automático de recupero trimestral. La base ya registra las comisiones no habilitadas para este fin.
   </div>`;
 }
