@@ -1469,13 +1469,22 @@ function renderAdminUsuarios() {
     document.getElementById('nu-un-wrap').style.display = tipo === 'un' ? 'block' : 'none';
   };
 
-  // Guardar en localStorage solo los usuarios extra (no los base)
+  // Guardar en localStorage: usuarios extra + usuarios base con nombre modificado
   window.guardarUsuariosExtra = function() {
-    const base = ['admin','ec_pamela','ec_andrea','ec_blanca_s','ec_blanca_q',
-                  'ec_maria_paz','ec_paula','ec_mj','un_tls','un_cnt','un_irh','un_out','un_marka'];
-    const extra = {};
-    Object.keys(USUARIOS).forEach(uid => { if (!base.includes(uid)) extra[uid] = USUARIOS[uid]; });
-    try { localStorage.setItem('jobs_usuarios', JSON.stringify(extra)); } catch(e) {}
+    const baseDefaults = {
+      admin:'Ximena Pedrero', ec_pamela:'Pamela Gonzalez', ec_andrea:'Andrea Zarza',
+      ec_blanca_s:'Blanca Sosa', ec_blanca_q:'Blanca Quiñonez', ec_maria_paz:'Maria Paz Rolon',
+      ec_paula:'Paula Viveros', ec_mj:'Maria Jose Gonzalez', un_tls:'Área TLS',
+      un_cnt:'Área CNT', un_irh:'Área iRH', un_out:'Área OUT', un_marka:'Área +Marka'
+    };
+    const toSave = {};
+    Object.keys(USUARIOS).forEach(uid => {
+      // Guardar si es usuario extra O si es base con nombre modificado
+      if (!baseDefaults[uid] || USUARIOS[uid].nombre !== baseDefaults[uid]) {
+        toSave[uid] = USUARIOS[uid];
+      }
+    });
+    try { localStorage.setItem('jobs_usuarios', JSON.stringify(toSave)); } catch(e) {}
   };
 
   // Regenerar el select del login con todos los USUARIOS actuales
@@ -1497,7 +1506,24 @@ function renderAdminUsuarios() {
     if (!nuevo) { alert('El nombre no puede estar vacío.'); return; }
     USUARIOS[uid].nombre = nuevo;
     const partes = nuevo.split(' ');
-    USUARIOS[uid].avatar = (partes[0][0] + (partes[1]?.[0] || '')).toUpperCase();
+    const nuevoAvatar = (partes[0][0] + (partes[1]?.[0] || '')).toUpperCase();
+    USUARIOS[uid].avatar = nuevoAvatar;
+
+    // Si el usuario editado es el que está logueado, actualizar currentUser y la sidebar
+    if (currentUser && currentUser.uid === uid) {
+      currentUser.nombre = nuevo;
+      currentUser.avatar = nuevoAvatar;
+      document.getElementById('sidebar-name').textContent = nuevo;
+      const av = document.getElementById('sidebar-avatar');
+      av.textContent = nuevoAvatar;
+    }
+
+    // Si el usuario editado es el admin que está impersonando, actualizar adminUser también
+    if (adminUser && adminUser.uid === uid) {
+      adminUser.nombre = nuevo;
+      adminUser.avatar = nuevoAvatar;
+    }
+
     guardarUsuariosExtra();
     actualizarSelectLogin();
     input.style.borderColor = 'var(--green-light)';
