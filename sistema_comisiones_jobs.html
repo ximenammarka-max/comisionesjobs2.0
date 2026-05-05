@@ -483,6 +483,14 @@ const USUARIOS = {
   un_marka:    {pass:'1234',nombre:'Área +Marka',       rol:'Unidad de Negocio',    tipo:'un',    avatar:'+MK', avatarClass:'avatar-un', un:'MARKA'},
 };
 
+// Cargar usuarios extra guardados en localStorage
+(function() {
+  try {
+    const saved = localStorage.getItem('jobs_usuarios');
+    if (saved) Object.assign(USUARIOS, JSON.parse(saved));
+  } catch(e) {}
+})();
+
 const ECS = [
   {id:'pamela',    nombre:'Pamela Gonzalez',      obj_tls:96800000, obj_cnt:24500000, obj_irh:27000000, color:'#1a56db'},
   {id:'andrea',    nombre:'Andrea Zarza',         obj_tls:90000000, obj_cnt:45000000, obj_irh:20000000, color:'#7c3aed'},
@@ -1378,6 +1386,14 @@ function renderAdminUsuarios() {
         <td style="font-size:12px;color:var(--text3)">${u.rol}</td>
         <td style="text-align:center">
           <div style="display:inline-flex;align-items:center;gap:6px">
+            <input id="edit_nombre_${uid}" class="input-obs"
+              style="width:150px;font-size:12px;padding:4px 8px"
+              value="${u.nombre}" placeholder="Nuevo nombre">
+            <button class="btn-sm" onclick="editarNombre('${uid}')">Guardar</button>
+          </div>
+        </td>
+        <td style="text-align:center">
+          <div style="display:inline-flex;align-items:center;gap:6px">
             <input id="pass_${uid}" type="password"
               style="width:130px;border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:12px;font-family:var(--font);background:var(--input-bg);color:var(--text)"
               placeholder="Nueva contraseña" autocomplete="new-password">
@@ -1436,6 +1452,10 @@ function renderAdminUsuarios() {
 
     USUARIOS[uid] = { pass, nombre, rol: rolFinal, tipo, avatar, avatarClass, ...(un ? {un} : {}) };
 
+    // Persistir y actualizar select
+    guardarUsuariosExtra();
+    actualizarSelectLogin();
+
     // Limpiar form
     ['nu-nombre','nu-rol','nu-pass'].forEach(id => document.getElementById(id).value = '');
     document.getElementById('nu-tipo').value = '';
@@ -1447,6 +1467,41 @@ function renderAdminUsuarios() {
   window.toggleUN = function() {
     const tipo = document.getElementById('nu-tipo').value;
     document.getElementById('nu-un-wrap').style.display = tipo === 'un' ? 'block' : 'none';
+  };
+
+  // Guardar en localStorage solo los usuarios extra (no los base)
+  window.guardarUsuariosExtra = function() {
+    const base = ['admin','ec_pamela','ec_andrea','ec_blanca_s','ec_blanca_q',
+                  'ec_maria_paz','ec_paula','ec_mj','un_tls','un_cnt','un_irh','un_out','un_marka'];
+    const extra = {};
+    Object.keys(USUARIOS).forEach(uid => { if (!base.includes(uid)) extra[uid] = USUARIOS[uid]; });
+    try { localStorage.setItem('jobs_usuarios', JSON.stringify(extra)); } catch(e) {}
+  };
+
+  // Regenerar el select del login con todos los USUARIOS actuales
+  window.actualizarSelectLogin = function() {
+    const sel = document.getElementById('login-user');
+    if (!sel) return;
+    const grupos = { admin: [], ec: [], un: [] };
+    Object.entries(USUARIOS).forEach(([uid, u]) => { if (grupos[u.tipo]) grupos[u.tipo].push({uid, nombre: u.nombre}); });
+    sel.innerHTML = `<option value="">Seleccioná tu perfil...</option>
+      <optgroup label="Administración">${grupos.admin.map(u=>`<option value="${u.uid}">${u.nombre}</option>`).join('')}</optgroup>
+      <optgroup label="Ejecutivas Comerciales">${grupos.ec.map(u=>`<option value="${u.uid}">${u.nombre}</option>`).join('')}</optgroup>
+      <optgroup label="Unidades de Negocio">${grupos.un.map(u=>`<option value="${u.uid}">${u.nombre}</option>`).join('')}</optgroup>`;
+  };
+
+  // Editar nombre de usuario
+  window.editarNombre = function(uid) {
+    const input = document.getElementById('edit_nombre_' + uid);
+    const nuevo = input.value.trim();
+    if (!nuevo) { alert('El nombre no puede estar vacío.'); return; }
+    USUARIOS[uid].nombre = nuevo;
+    const partes = nuevo.split(' ');
+    USUARIOS[uid].avatar = (partes[0][0] + (partes[1]?.[0] || '')).toUpperCase();
+    guardarUsuariosExtra();
+    actualizarSelectLogin();
+    input.style.borderColor = 'var(--green-light)';
+    setTimeout(() => showView('admin-usuarios'), 700);
   };
 
   const UNS = ['TLS','CNT','IRH','OUT','MARKA'];
@@ -1467,6 +1522,7 @@ function renderAdminUsuarios() {
             <th>ID de usuario</th>
             <th>Tipo</th>
             <th>Rol</th>
+            <th style="text-align:center">Editar nombre</th>
             <th style="text-align:center">Cambiar contraseña</th>
             <th style="text-align:center">Acción</th>
           </tr>
@@ -1527,8 +1583,7 @@ function renderAdminUsuarios() {
   </div>
 
   <div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-size:12px;color:var(--text3)">
-    ⚠ <strong>Importante:</strong> Los cambios de contraseña y usuarios son temporales en esta versión de demo — se guardan en memoria mientras la sesión esté abierta. 
-    Cuando conectemos el Google Sheets, los usuarios y contraseñas se guardarán permanentemente en una hoja protegida del Sheets.
+    ⚠ <strong>Importante:</strong> Los usuarios nuevos y cambios de nombre se guardan en <strong>localStorage</strong> de este navegador — persisten al cerrar sesión y al recargar la página. Los cambios de contraseña se guardan solo en memoria por sesión. Cuando conectemos el Google Sheets, todo se guardará permanentemente en una hoja protegida.
   </div>`;
 }
 </script>
