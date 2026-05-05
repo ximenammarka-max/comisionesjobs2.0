@@ -19,7 +19,6 @@
   --font: 'DM Sans', sans-serif;
   --mono: 'DM Mono', monospace;
   --sidebar-w: 240px;
-  /* Light mode */
   --bg: #f8fafc; --bg2: #ffffff; --bg3: #f1f5f9;
   --border: #e2e8f0; --border2: #cbd5e1;
   --text: #1e293b; --text2: #475569; --text3: #94a3b8;
@@ -39,8 +38,6 @@
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:var(--font); background:var(--bg); color:var(--text); min-height:100vh; font-size:14px; transition:background 0.2s,color 0.2s; }
-
-/* LOGIN */
 #login-screen { min-height:100vh; background:var(--jobs-navy); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
 #login-screen::before { content:''; position:absolute; width:600px; height:600px; background:radial-gradient(circle,rgba(61,59,142,0.2) 0%,transparent 70%); top:-100px; right:-100px; border-radius:50%; }
 #login-screen::after  { content:''; position:absolute; width:400px; height:400px; background:radial-gradient(circle,rgba(201,168,76,0.1) 0%,transparent 70%); bottom:-50px; left:-50px; border-radius:50%; }
@@ -58,15 +55,11 @@ body { font-family:var(--font); background:var(--bg); color:var(--text); min-hei
 .btn-login { width:100%; background:var(--jobs-navy2); border:1px solid var(--jobs-gold); color:#fff; border-radius:10px; padding:13px; font-family:var(--font); font-size:14px; font-weight:600; cursor:pointer; margin-top:6px; transition:all 0.2s; }
 .btn-login:hover { background:var(--jobs-gold); color:var(--jobs-navy); }
 .login-error { color:#fca5a5; font-size:12px; margin-top:8px; text-align:center; display:none; }
-
-/* QUICK ACCESS ADMIN */
 .quick-profiles { margin-top:20px; border-top:1px solid rgba(255,255,255,0.08); padding-top:16px; }
 .quick-profiles p { font-size:11px; color:rgba(255,255,255,0.3); text-align:center; margin-bottom:10px; }
 .quick-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; }
 .quick-btn { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:7px 4px; text-align:center; cursor:pointer; transition:all 0.15s; color:rgba(255,255,255,0.6); font-size:11px; font-weight:500; }
 .quick-btn:hover { background:rgba(201,168,76,0.15); border-color:var(--jobs-gold); color:var(--jobs-gold-light); }
-
-/* SIDEBAR */
 #app { display:none; min-height:100vh; }
 .sidebar { position:fixed; left:0; top:0; bottom:0; width:var(--sidebar-w); background:var(--jobs-navy); display:flex; flex-direction:column; z-index:100; }
 .sidebar-brand { padding:18px 16px; border-bottom:1px solid rgba(255,255,255,0.07); display:flex; align-items:center; gap:10px; }
@@ -89,8 +82,6 @@ body { font-family:var(--font); background:var(--bg); color:var(--text); min-hei
 .btn-logout:hover { background:rgba(220,38,38,0.1); color:#fca5a5; }
 .btn-darkmode { display:flex; align-items:center; gap:8px; width:100%; padding:8px 10px; border-radius:8px; background:none; border:none; color:rgba(255,255,255,0.3); font-family:var(--font); font-size:12px; cursor:pointer; transition:all 0.15s; }
 .btn-darkmode:hover { background:rgba(201,168,76,0.1); color:var(--jobs-gold-light); }
-
-/* MAIN */
 .main { margin-left:var(--sidebar-w); min-height:100vh; display:flex; flex-direction:column; }
 .topbar { background:var(--topbar-bg); border-bottom:1px solid var(--border); padding:0 24px; height:56px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:50; box-shadow:var(--shadow); }
 .topbar-title { font-size:15px; font-weight:700; color:var(--text); }
@@ -99,8 +90,6 @@ body { font-family:var(--font); background:var(--bg); color:var(--text); min-hei
 .mes-selector { display:flex; align-items:center; gap:6px; background:var(--bg3); border:1px solid var(--border); border-radius:8px; padding:5px 10px; font-size:13px; font-weight:500; color:var(--text2); }
 .mes-selector select { background:none; border:none; font-family:var(--font); font-size:13px; font-weight:500; color:var(--text); cursor:pointer; outline:none; }
 .content { padding:24px; flex:1; }
-
-/* CARDS & TABLES */
 .stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:20px; }
 .stat-card { background:var(--card-bg); border:1px solid var(--border); border-radius:12px; padding:18px; position:relative; overflow:hidden; box-shadow:var(--shadow); }
 .stat-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
@@ -111,12 +100,10 @@ body { font-family:var(--font); background:var(--bg); color:var(--text); min-hei
 .stat-label { font-size:11px; font-weight:600; color:var(--text3); letter-spacing:0.8px; text-transform:uppercase; margin-bottom:6px; }
 .stat-value { font-size:20px; font-weight:700; color:var(--text); font-family:var(--mono); }
 .stat-sub   { font-size:11px; color:var(--text3); margin-top:3px; }
-
 .card { background:var(--card-bg); border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:18px; box-shadow:var(--shadow); }
 .card-header { padding:14px 18px; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
 .card-title { font-size:13px; font-weight:700; color:var(--text); }
 .card-sub   { font-size:11px; color:var(--text3); margin-top:2px; }
-
 table { width:100%; border-collapse:collapse; }
 th { background:var(--bg3); padding:9px 14px; text-align:left; font-size:10px; font-weight:700; color:var(--text3); letter-spacing:0.8px; text-transform:uppercase; border-bottom:1px solid var(--border); white-space:nowrap; }
 td { padding:11px 14px; border-bottom:1px solid var(--border); font-size:13px; color:var(--text2); }
@@ -125,8 +112,6 @@ tr:hover td { background:var(--table-alt); }
 .td-bold  { font-weight:700; color:var(--text); }
 .td-mono  { font-family:var(--mono); font-size:12px; }
 .td-right { text-align:right; }
-
-/* BADGES */
 .badge { display:inline-flex; align-items:center; gap:3px; padding:3px 9px; border-radius:20px; font-size:11px; font-weight:600; white-space:nowrap; }
 .badge-tls  { background:#ededf7; color:var(--jobs-navy); }
 .badge-cnt  { background:#dcfce7; color:#166534; }
@@ -136,13 +121,9 @@ tr:hover td { background:var(--table-alt); }
 .badge-si   { background:#dcfce7; color:var(--green); }
 .badge-no   { background:#fee2e2; color:var(--red); }
 .badge-pend { background:#fef3c7; color:#92400e; }
-
-/* TABS */
 .tabs { display:flex; gap:3px; background:var(--bg3); border-radius:10px; padding:4px; margin-bottom:18px; width:fit-content; border:1px solid var(--border); }
 .tab { padding:6px 16px; border-radius:7px; font-size:13px; font-weight:500; color:var(--text3); cursor:pointer; transition:all 0.15s; white-space:nowrap; }
 .tab.active { background:var(--card-bg); color:var(--jobs-navy); font-weight:700; box-shadow:0 1px 3px rgba(0,0,0,0.08); border-bottom:2px solid var(--jobs-navy); }
-
-/* INPUTS */
 .input-monto { background:#fffbeb; border:1.5px dashed var(--jobs-gold); border-radius:6px; padding:5px 10px; font-family:var(--mono); font-size:12px; color:var(--text); width:130px; text-align:right; outline:none; transition:all 0.15s; }
 .input-monto:focus { border-color:var(--jobs-navy); background:#f0f0f8; }
 .input-obs { background:var(--input-bg); border:1px solid var(--input-border); border-radius:6px; padding:5px 10px; font-family:var(--font); font-size:12px; color:var(--text); width:200px; outline:none; }
@@ -151,8 +132,6 @@ tr:hover td { background:var(--table-alt); }
 .btn-save:hover { background:var(--jobs-navy2); }
 .btn-sm { padding:5px 11px; border-radius:6px; border:1px solid var(--border); background:var(--card-bg); color:var(--text2); font-size:12px; font-weight:500; cursor:pointer; font-family:var(--font); transition:all 0.15s; }
 .btn-sm:hover { border-color:var(--jobs-gold); color:var(--jobs-navy); }
-
-/* RESUMEN GRID */
 .resumen-grid { display:grid; border:1px solid var(--border); border-radius:12px; overflow:hidden; background:var(--card-bg); margin-bottom:18px; font-size:12px; }
 .rg-header { background:var(--jobs-navy); color:#fff; padding:9px 10px; font-weight:600; font-size:10px; text-align:center; border-right:1px solid rgba(255,255,255,0.1); }
 .rg-label  { padding:9px 12px; font-weight:600; border-right:1px solid var(--border); border-bottom:1px solid var(--border); display:flex; align-items:center; gap:6px; font-size:12px; color:var(--text); background:var(--card-bg); }
@@ -169,8 +148,6 @@ tr:hover td { background:var(--table-alt); }
 .dot-cnt   { background:var(--green); }
 .dot-irh   { background:#059669; }
 .dot-other { background:var(--text3); }
-
-/* PROGRESS */
 .alcance-wrap { display:flex; align-items:center; gap:7px; min-width:130px; }
 .alcance-bar-outer { flex:1; background:var(--border); border-radius:100px; height:5px; }
 .alcance-bar-inner { height:100%; border-radius:100px; }
@@ -181,14 +158,10 @@ tr:hover td { background:var(--table-alt); }
 .pct-green { color:var(--green); }
 .pct-gold  { color:var(--jobs-gold); }
 .pct-red   { color:var(--red); }
-
-/* OBS TAGS */
 .obs-tag { display:inline-flex; align-items:center; gap:3px; padding:3px 7px; border-radius:4px; font-size:11px; max-width:240px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .obs-auto   { background:#fef3c7; color:#92400e; }
 .obs-manual { background:#ede9fe; color:#6d28d9; }
-.obs-ok     { background:#dcfce7; color:#166534; }
-
-/* CHECKLIST */
+.obs-ok     { background:#dcfce7; color:#166634; }
 .checklist-item { display:flex; align-items:flex-start; gap:12px; padding:10px 14px; border-radius:8px; margin-bottom:6px; border:1px solid var(--border); background:var(--card-bg); }
 .checklist-item.done  { background:var(--bg3); border-color:var(--border); }
 .checklist-item.pend  { border-color:#fde68a; background:#fffbeb; }
@@ -199,23 +172,17 @@ tr:hover td { background:var(--table-alt); }
 .icon-warn { background:#fee2e2; color:var(--red); }
 .check-label { font-size:13px; font-weight:600; color:var(--text); }
 .check-sub   { font-size:11px; color:var(--text3); margin-top:2px; }
-
-/* DARK MODE TOGGLE */
 .dark-toggle { position:relative; display:inline-flex; align-items:center; cursor:pointer; }
 .toggle-track { width:32px; height:18px; background:rgba(255,255,255,0.15); border-radius:100px; position:relative; transition:background 0.2s; }
 .toggle-thumb { position:absolute; width:14px; height:14px; background:#fff; border-radius:50%; top:2px; left:2px; transition:left 0.2s; }
 [data-theme="dark"] .toggle-track { background:var(--jobs-gold); }
 [data-theme="dark"] .toggle-thumb { left:16px; }
-
-/* IMPERSONATION BAR */
 .impersonate-bar { background:var(--jobs-gold); padding:8px 24px; display:flex; align-items:center; justify-content:space-between; font-size:12px; font-weight:600; color:var(--jobs-navy); }
 .impersonate-bar button { background:var(--jobs-navy); color:#fff; border:none; border-radius:6px; padding:4px 12px; font-size:12px; font-weight:600; cursor:pointer; font-family:var(--font); }
-
 @media(max-width:1200px){ .stats-grid{grid-template-columns:repeat(2,1fr);} }
 </style>
 </head>
 <body>
-
 <!-- LOGIN -->
 <div id="login-screen">
   <div class="login-card">
@@ -259,7 +226,6 @@ tr:hover td { background:var(--table-alt); }
       </div>
       <button class="btn-login" onclick="doLogin()">Ingresar al sistema</button>
       <div class="login-error" id="login-error">Usuario o contraseña incorrectos</div>
-
     </div>
     <div class="quick-profiles" id="quick-admin" style="display:none">
       <p>Acceso rápido (modo admin)</p>
@@ -293,12 +259,14 @@ tr:hover td { background:var(--table-alt); }
     <div class="topbar">
       <div><div class="topbar-title" id="topbar-title"></div><div class="topbar-sub" id="topbar-sub"></div></div>
       <div class="topbar-right">
-        <div id="sheets-status" style="font-size:11px;color:var(--text3);display:flex;align-items:center;gap:5px;padding:4px 10px;background:var(--bg3);border:1px solid var(--border);border-radius:6px">
-          ⏳ Conectando...
-        </div>
+        <div id="sheets-status" style="font-size:11px;color:var(--text3);display:flex;align-items:center;gap:5px;padding:4px 10px;background:var(--bg3);border:1px solid var(--border);border-radius:6px">⏳ Conectando...</div>
         <div class="mes-selector">📅&nbsp;<select id="mes-global" onchange="updateMes()">
           <option value="1">Enero 2026</option><option value="2">Febrero 2026</option>
-          <option value="3" selected>Marzo 2026</option><option value="4">Abril 2026</option><option value="5">Mayo 2026</option>
+          <option value="3" selected>Marzo 2026</option><option value="4">Abril 2026</option>
+          <option value="5">Mayo 2026</option><option value="6">Junio 2026</option>
+          <option value="7">Julio 2026</option><option value="8">Agosto 2026</option>
+          <option value="9">Setiembre 2026</option><option value="10">Octubre 2026</option>
+          <option value="11">Noviembre 2026</option><option value="12">Diciembre 2026</option>
         </select></div>
         <button class="btn-sm" onclick="doLogout()" title="Cerrar sesión">⎋ Salir</button>
       </div>
@@ -308,9 +276,8 @@ tr:hover td { background:var(--table-alt); }
 </div>
 
 <script>
-
 // ═══════════════════════════════════════════════════════════════════════════
-// CONEXIÓN GOOGLE SHEETS
+// GOOGLE SHEETS — CONEXIÓN Y APPS SCRIPT
 // ═══════════════════════════════════════════════════════════════════════════
 const SHEETS_URLS = {
   DESCARGA_ACTUAL:   'https://docs.google.com/spreadsheets/d/e/2PACX-1vQVSKF8T1yarrXtsLxkXsTXIGeE8sP7b_WdkqQ_sOgDfGd69zQTZqpCPEBhPldT2g/pub?gid=1919636766&single=true&output=csv',
@@ -321,18 +288,17 @@ const SHEETS_URLS = {
   PARAMETROS:        'https://docs.google.com/spreadsheets/d/e/2PACX-1vQVSKF8T1yarrXtsLxkXsTXIGeE8sP7b_WdkqQ_sOgDfGd69zQTZqpCPEBhPldT2g/pub?gid=1548575786&single=true&output=csv',
 };
 
-// Cache de datos del Sheets
+// URL del Apps Script para escritura (configurar cuando esté desplegado)
+const APPS_SCRIPT_URL = '';  // ← acá va la URL del Apps Script cuando lo configures
+
 const sheetsCache = {};
 let sheetsConectado = false;
-let sheetsError = null;
 
-// Parsear CSV a array de objetos
 function parseCSV(text) {
   const lines = text.trim().split('\n');
   if (lines.length < 2) return [];
   const headers = lines[0].split(',').map(h => h.replace(/^"|"$/g,'').trim());
   return lines.slice(1).map(line => {
-    // Manejar comas dentro de comillas
     const vals = [];
     let current = ''; let inQuotes = false;
     for (let i = 0; i < line.length; i++) {
@@ -347,7 +313,6 @@ function parseCSV(text) {
   });
 }
 
-// Cargar una hoja del Sheets
 async function cargarHoja(nombre) {
   if (sheetsCache[nombre]) return sheetsCache[nombre];
   try {
@@ -363,78 +328,67 @@ async function cargarHoja(nombre) {
   }
 }
 
-// Cargar todas las hojas al iniciar
 async function conectarSheets() {
   const statusEl = document.getElementById('sheets-status');
   if (statusEl) statusEl.innerHTML = '⏳ Conectando al Google Sheets...';
-  
   try {
-    const [cobranzas, historico, sap, vpm, objetivos, parametros] = await Promise.all([
-      cargarHoja('DESCARGA_ACTUAL'),
+    const [historico, objetivos, vpm] = await Promise.all([
       cargarHoja('HISTORICO_CIERRES'),
-      cargarHoja('DESCARGA_SAP'),
-      cargarHoja('VPM_TLS'),
       cargarHoja('OBJETIVOS'),
-      cargarHoja('PARAMETROS'),
+      cargarHoja('VPM_TLS'),
     ]);
-
-    // Poblar datos reales si las hojas tienen contenido
-    if (historico && historico.length > 0) {
-      poblarDesdeHistorico(historico);
-    }
-    if (objetivos && objetivos.length > 0) {
-      poblarObjetivos(objetivos);
-    }
-    if (vpm && vpm.length > 0) {
-      poblarVPM(vpm);
-    }
-
+    if (historico && historico.length > 0) poblarDesdeHistorico(historico);
+    if (objetivos && objetivos.length > 0) poblarObjetivos(objetivos);
+    if (vpm && vpm.length > 0) poblarVPM(vpm);
     sheetsConectado = true;
-    if (statusEl) statusEl.innerHTML = '✅ Conectado al Google Sheets — datos en tiempo real';
-    
-    // Refrescar vista actual
+    if (statusEl) statusEl.innerHTML = '✅ Conectado — datos en tiempo real';
     if (currentView) showView(currentView);
-    
   } catch(e) {
-    sheetsError = e.message;
-    if (statusEl) statusEl.innerHTML = '⚠ Sin conexión al Sheets — mostrando datos de ejemplo';
+    if (statusEl) statusEl.innerHTML = '⚠ Sin conexión — datos de ejemplo';
   }
 }
 
-// Poblar datos desde HISTORICO_CIERRES
+// Escribir al Sheets via Apps Script
+async function escribirAlSheets(hoja, fila, columna, valor) {
+  if (!APPS_SCRIPT_URL) return false;
+  try {
+    const res = await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ hoja, fila, columna, valor, usuario: currentUser?.nombre || '' }),
+    });
+    return res.ok;
+  } catch(e) {
+    console.error('Error escribiendo al Sheets:', e);
+    return false;
+  }
+}
+
 function poblarDesdeHistorico(rows) {
-  // Limpiar datos actuales de ejemplo
   ECS.forEach(ec => {
     tls_com[ec.id] = Array(12).fill(0);
     com_cnt[ec.id] = Array(12).fill(0);
     com_irh[ec.id] = Array(12).fill(0);
   });
-
   rows.forEach(row => {
-    // Identificar ejecutiva por CRM
     const crm = (row['CRM'] || row['Vendedor'] || '').trim();
     const ec = ECS.find(e => crm.toUpperCase().includes(e.nombre.toUpperCase().split(' ')[0]) ||
                               crm.toUpperCase().includes(e.nombre.toUpperCase().split(' ')[1] || ''));
     if (!ec) return;
-
     const tipo = (row['Tipo Servicio'] || row['TIPO SERVICIO'] || '').trim().toUpperCase();
     const comisionaStr = (row['COMISIONA?'] || '').toLowerCase();
     const comisiona = comisionaStr.includes('comisiona') && !comisionaStr.includes('no');
     if (!comisiona) return;
-
-    // Mes de cobro (MES_CIERRE o MES_EMISION)
     const mesCierre = parseInt(row['MES_CIERRE'] || row['MES_EMISION'] || 0);
     const monto = parseFloat((row['Monto'] || row['MONTO'] || '0').replace(/[^0-9.]/g,'')) || 0;
     if (!mesCierre || mesCierre < 1 || mesCierre > 12) return;
     const mesIdx = mesCierre - 1;
-
-    if (tipo === 'TLS') tls_com[ec.id][mesIdx] += monto * 0.10; // placeholder % hasta tener VPM
+    if (tipo === 'TLS') tls_com[ec.id][mesIdx] += monto * 0.10;
     else if (tipo === 'CNT') com_cnt[ec.id][mesIdx] += monto;
     else if (tipo === 'IRH') com_irh[ec.id][mesIdx] += monto;
   });
 }
 
-// Poblar objetivos desde hoja OBJETIVOS
 function poblarObjetivos(rows) {
   rows.forEach(row => {
     const crm = (row['CRM / Vendedor'] || '').trim();
@@ -443,23 +397,21 @@ function poblarObjetivos(rows) {
     if (!ec) return;
     MESES.forEach((m, i) => {
       const val = parseFloat((row[m] || '0').replace(/[^0-9.]/g,'')) || 0;
-      if (un === 'TLS' && val > 0) ec.obj_tls = val * 12; // anualizado
+      if (un === 'TLS' && val > 0) ec.obj_tls = val * 12;
     });
   });
 }
 
-// Poblar % alcance desde VPM_TLS
 function poblarVPM(rows) {
-  // VPM tiene estructura especial — buscar filas de % alcance
   rows.forEach(row => {
-    const vendedor = (row['Vendedor (CRM)'] || row[''] || '').trim();
+    const vendedor = (row['Vendedor (CRM)'] || '').trim();
     const ec = ECS.find(e => vendedor.toUpperCase().includes(e.nombre.toUpperCase().split(' ')[0]));
     if (!ec) return;
     MESES.forEach((m, i) => {
       const mesKey = String(i+1).padStart(2,'0') + '_' + m.toLowerCase().slice(0,3);
       const val = parseFloat((row[mesKey] || '0').replace(/[^0-9.%]/g,'')) || 0;
-      if (val > 0 && val <= 2) alcance_tls[ec.id][i] = val; // si ya viene como decimal
-      else if (val > 2) alcance_tls[ec.id][i] = val / 100; // si viene como porcentaje
+      if (val > 0 && val <= 2) alcance_tls[ec.id][i] = val;
+      else if (val > 2) alcance_tls[ec.id][i] = val / 100;
     });
   });
 }
@@ -483,7 +435,7 @@ const USUARIOS = {
   un_marka:    {pass:'1234',nombre:'Área +Marka',       rol:'Unidad de Negocio',    tipo:'un',    avatar:'+MK', avatarClass:'avatar-un', un:'MARKA'},
 };
 
-// Cargar usuarios extra guardados en localStorage
+// Cargar usuarios extra desde localStorage
 (function() {
   try {
     const saved = localStorage.getItem('jobs_usuarios');
@@ -503,7 +455,6 @@ const ECS = [
 
 const MESES = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
 
-// Comisiones TLS calculadas (facturación cobrada × %)
 const tls_com = {
   pamela:   [9078308,3212885,1540000,0,0,0,0,0,0,0,0,0],
   andrea:   [4200000,5100000,7800000,0,0,0,0,0,0,0,0,0],
@@ -512,11 +463,6 @@ const tls_com = {
   maria_paz:[800000, 1200000,600000, 0,0,0,0,0,0,0,0,0],
   paula:    [5600000,4200000,6100000,0,0,0,0,0,0,0,0,0],
   mj:       [3100000,2800000,4200000,0,0,0,0,0,0,0,0,0],
-};
-
-// % TLS modificable por admin (por mes, 0-based)
-const pct_tls_override = {
-  pamela:{}, andrea:{}, blanca_s:{}, blanca_q:{}, maria_paz:{}, paula:{}, mj:{}
 };
 
 const alcance_tls = {
@@ -529,80 +475,76 @@ const alcance_tls = {
   mj:       [0.056,0.107,0.183,0,0,0,0,0,0,0,0,0],
 };
 
-// CNT e iRH cargadas por las UN
-const com_cnt = {pamela:[0,186182,0,0,0,0,0,0,0,0,0,0],andrea:[0,0,0,0,0,0,0,0,0,0,0,0],blanca_s:Array(12).fill(0),blanca_q:Array(12).fill(0),maria_paz:Array(12).fill(0),paula:[53454,1283636,4096818,0,0,0,0,0,0,0,0,0],mj:Array(12).fill(0)};
+const com_cnt = {pamela:[0,186182,0,0,0,0,0,0,0,0,0,0],andrea:Array(12).fill(0),blanca_s:Array(12).fill(0),blanca_q:Array(12).fill(0),maria_paz:Array(12).fill(0),paula:[53454,1283636,4096818,0,0,0,0,0,0,0,0,0],mj:Array(12).fill(0)};
 const com_irh = {pamela:Array(12).fill(0),andrea:[0,970000,470000,0,0,0,0,0,0,0,0,0],blanca_s:Array(12).fill(0),blanca_q:Array(12).fill(0),maria_paz:[300000,970000,470000,0,0,0,0,0,0,0,0,0],paula:Array(12).fill(0),mj:Array(12).fill(0)};
 
-// Descuentos 25% — { ec, mes, un, monto_descuento, motivo }
 const descuentos = [
   {ec:'andrea', mes:1, un:'CNT', monto:175000, motivo:'No habilitó TLS — descuento 25% sobre CNT'},
 ];
 
-// OUT y +Marka
 const com_out = [
-  {ec:'pamela',   mes:0, monto:500000,  servicio:'Contrato Temporal — Operario Planta'},
-  {ec:'andrea',   mes:1, monto:800000,  servicio:'Personal Temporario — Reposición'},
-  {ec:'paula',    mes:2, monto:1200000, servicio:'Contrato Temporal — Cajera'},
-];
-const com_marka = [
-  {ec:'pamela',   mes:0, tipo:'servicio',              monto:350000, detalle:'Servicio de marca — Campaña Q1'},
-  {ec:'pamela',   mes:0, tipo:'reunion_estrategica',   monto:250000, detalle:'Reunión estratégica Ene'},
-  {ec:'andrea',   mes:1, tipo:'reunion_no_estrategica',monto:50000,  detalle:'Reunión no estratégica Feb'},
-  {ec:'andrea',   mes:1, tipo:'reunion_no_estrategica',monto:50000,  detalle:'Reunión no estratégica Feb (2)'},
-  {ec:'paula',    mes:2, tipo:'servicio',              monto:600000, detalle:'Activación marca Mar'},
-  {ec:'paula',    mes:2, tipo:'reunion_estrategica',   monto:250000, detalle:'Reunión estratégica Mar'},
+  {ec:'pamela',mes:0,monto:500000, servicio:'Contrato Temporal — Operario Planta'},
+  {ec:'andrea',mes:1,monto:800000, servicio:'Personal Temporario — Reposición'},
+  {ec:'paula', mes:2,monto:1200000,servicio:'Contrato Temporal — Cajera'},
 ];
 
-// Facturas detalle para planillas EC
+const com_marka = [
+  {ec:'pamela',mes:0,tipo:'servicio',             monto:350000,detalle:'Servicio de marca — Campaña Q1'},
+  {ec:'pamela',mes:0,tipo:'reunion_estrategica',  monto:250000,detalle:'Reunión estratégica Ene'},
+  {ec:'andrea',mes:1,tipo:'reunion_no_estrategica',monto:50000, detalle:'Reunión no estratégica Feb'},
+  {ec:'andrea',mes:1,tipo:'reunion_no_estrategica',monto:50000, detalle:'Reunión no estratégica Feb (2)'},
+  {ec:'paula', mes:2,tipo:'servicio',             monto:600000,detalle:'Activación marca Mar'},
+  {ec:'paula', mes:2,tipo:'reunion_estrategica',  monto:250000,detalle:'Reunión estratégica Mar'},
+];
+
 const facturas_ec = {
-  pamela: [
-    {mes:1,cliente:'BLOCK TRAVEL GROUP SA',     tipo:'TLS',detalle:'Inicial Búsqueda Auxiliar',          factura:'001-001-5675',pago:'INI',monto:1500000, com:150000,  no_hab:0,      habilita:true, anio_em:2026,mes_em:1},
-    {mes:1,cliente:'FRIOPAR SA',                tipo:'TLS',detalle:'Búsqueda Jefatura Inicial',           factura:'001-001-5724',pago:'INI',monto:6000000, com:600000,  no_hab:0,      habilita:true, anio_em:2026,mes_em:1},
-    {mes:1,cliente:'INDUSTRIAS AMERICANAS SA',  tipo:'TLS',detalle:'Búsqueda Gerencia Final (dic/2025)',  factura:'001-001-5412',pago:'FIN',monto:24318181,com:2431818, no_hab:0,      habilita:true, anio_em:2025,mes_em:12},
-    {mes:1,cliente:'PAMELA MARKA SRL',          tipo:'MARKA',detalle:'Servicio marca — Campaña Q1',      factura:'—',           pago:'—', monto:0,        com:350000,  no_hab:0,      habilita:true, anio_em:2026,mes_em:1},
-    {mes:1,cliente:'+Marka',                    tipo:'MARKA',detalle:'Reunión estratégica Ene',           factura:'—',           pago:'—', monto:0,        com:250000,  no_hab:0,      habilita:true, anio_em:2026,mes_em:1},
-    {mes:1,cliente:'OPERADORA LOG SA',          tipo:'OUT',  detalle:'Contrato Temporal — Operario',      factura:'—',           pago:'—', monto:0,        com:500000,  no_hab:0,      habilita:true, anio_em:2026,mes_em:1},
-    {mes:2,cliente:'FRIOPAR SA',                tipo:'TLS',detalle:'Búsqueda Final',                      factura:'001-001-6012',pago:'FIN',monto:5880000, com:588000,  no_hab:0,      habilita:true, anio_em:2026,mes_em:1},
-    {mes:2,cliente:'TEMARA S.A',                tipo:'CNT',detalle:'Def. Indicadores — inicial',          factura:'001-001-5980',pago:'INI',monto:4000000, com:186182,  no_hab:0,      habilita:true, anio_em:2026,mes_em:2},
-    {mes:3,cliente:'TEMARA S.A',                tipo:'TLS',detalle:'Evaluación OC 702',                   factura:'001-001-6363',pago:'TOT',monto:919999,  com:92000,   no_hab:0,      habilita:true, anio_em:2026,mes_em:3},
-    {mes:3,cliente:'TEMARA S.A',                tipo:'CNT',detalle:'Def. Indicadores Gestión Final',      factura:'001-001-6268',pago:'FIN',monto:4654545, com:0,       no_hab:186182, habilita:false,anio_em:2026,mes_em:3,obs_no_hab:'TLS mar <60% — ver recupero Q1'},
+  pamela:[
+    {mes:1,cliente:'BLOCK TRAVEL GROUP SA',    tipo:'TLS',  detalle:'Inicial Búsqueda Auxiliar',         factura:'001-001-5675',pago:'INI',monto:1500000, com:150000, no_hab:0,      habilita:true, anio_em:2026,mes_em:1},
+    {mes:1,cliente:'FRIOPAR SA',               tipo:'TLS',  detalle:'Búsqueda Jefatura Inicial',          factura:'001-001-5724',pago:'INI',monto:6000000, com:600000, no_hab:0,      habilita:true, anio_em:2026,mes_em:1},
+    {mes:1,cliente:'INDUSTRIAS AMERICANAS SA', tipo:'TLS',  detalle:'Búsqueda Gerencia Final (dic/2025)', factura:'001-001-5412',pago:'FIN',monto:24318181,com:2431818,no_hab:0,      habilita:true, anio_em:2025,mes_em:12},
+    {mes:1,cliente:'+Marka',                   tipo:'MARKA',detalle:'Servicio marca + Reunión estrat.',   factura:'—',           pago:'—', monto:0,        com:600000, no_hab:0,      habilita:true, anio_em:2026,mes_em:1},
+    {mes:1,cliente:'OPERADORA LOG SA',         tipo:'OUT',  detalle:'Contrato Temporal — Operario',       factura:'—',           pago:'—', monto:0,        com:500000, no_hab:0,      habilita:true, anio_em:2026,mes_em:1},
+    {mes:2,cliente:'FRIOPAR SA',               tipo:'TLS',  detalle:'Búsqueda Final',                     factura:'001-001-6012',pago:'FIN',monto:5880000, com:588000, no_hab:0,      habilita:true, anio_em:2026,mes_em:1},
+    {mes:2,cliente:'TEMARA S.A',               tipo:'CNT',  detalle:'Def. Indicadores — inicial',         factura:'001-001-5980',pago:'INI',monto:4000000, com:186182, no_hab:0,      habilita:true, anio_em:2026,mes_em:2},
+    {mes:3,cliente:'TEMARA S.A',               tipo:'TLS',  detalle:'Evaluación OC 702',                  factura:'001-001-6363',pago:'TOT',monto:919999,  com:92000,  no_hab:0,      habilita:true, anio_em:2026,mes_em:3},
+    {mes:3,cliente:'TEMARA S.A',               tipo:'CNT',  detalle:'Def. Indicadores Gestión Final',     factura:'001-001-6268',pago:'FIN',monto:4654545, com:0,      no_hab:186182, habilita:false,anio_em:2026,mes_em:3,obs_no_hab:'TLS mar <60% — ver recupero Q1'},
   ],
-  andrea: [
-    {mes:1,cliente:'ALTAJA SA',                 tipo:'TLS',detalle:'Búsqueda Analista Final',             factura:'001-001-5844',pago:'FIN',monto:3500000, com:280000,  no_hab:0,      habilita:true, anio_em:2026,mes_em:1},
-    {mes:1,cliente:'BANCO FAMILIAR SA',         tipo:'TLS',detalle:'Búsqueda Jefatura Inicial',           factura:'001-001-5801',pago:'INI',monto:6000000, com:480000,  no_hab:0,      habilita:true, anio_em:2026,mes_em:1},
-    {mes:2,cliente:'BANCO BASA S.A.',           tipo:'CNT',detalle:'Consultoría RRHH Q1',                 factura:'001-001-5912',pago:'FIN',monto:8000000, com:0,       no_hab:320000, habilita:false,anio_em:2026,mes_em:2,obs_no_hab:'TLS feb <60% — descuento 25% aplicado'},
-    {mes:2,cliente:'BANCO BASA S.A.',           tipo:'IRH',detalle:'Servicio iRH Renovación',             factura:'001-003-492', pago:'TOT',monto:5454545, com:970000,  no_hab:0,      habilita:true, anio_em:2026,mes_em:2},
-    {mes:3,cliente:'ALTAJA SA',                 tipo:'TLS',detalle:'Búsqueda Gerencia Final',             factura:'001-001-6210',pago:'FIN',monto:9000000, com:900000,  no_hab:0,      habilita:true, anio_em:2026,mes_em:3},
+  andrea:[
+    {mes:1,cliente:'ALTAJA SA',                tipo:'TLS',detalle:'Búsqueda Analista Final',  factura:'001-001-5844',pago:'FIN',monto:3500000,com:280000, no_hab:0,     habilita:true, anio_em:2026,mes_em:1},
+    {mes:1,cliente:'BANCO FAMILIAR SA',        tipo:'TLS',detalle:'Búsqueda Jefatura Inicial',factura:'001-001-5801',pago:'INI',monto:6000000,com:480000, no_hab:0,     habilita:true, anio_em:2026,mes_em:1},
+    {mes:2,cliente:'BANCO BASA S.A.',          tipo:'CNT',detalle:'Consultoría RRHH Q1',      factura:'001-001-5912',pago:'FIN',monto:8000000,com:0,      no_hab:320000,habilita:false,anio_em:2026,mes_em:2,obs_no_hab:'TLS feb <60% — descuento 25% aplicado'},
+    {mes:2,cliente:'BANCO BASA S.A.',          tipo:'IRH',detalle:'Servicio iRH Renovación',  factura:'001-003-492', pago:'TOT',monto:5454545,com:970000, no_hab:0,     habilita:true, anio_em:2026,mes_em:2},
+    {mes:3,cliente:'ALTAJA SA',                tipo:'TLS',detalle:'Búsqueda Gerencia Final',  factura:'001-001-6210',pago:'FIN',monto:9000000,com:900000, no_hab:0,     habilita:true, anio_em:2026,mes_em:3},
   ],
   blanca_s:[
-    {mes:1,cliente:'COOPERATIVA MULTIRED',      tipo:'TLS',detalle:'Búsqueda Analista Inicial',           factura:'001-001-5790',pago:'INI',monto:2800000, com:224000,  no_hab:0,      habilita:true, anio_em:2026,mes_em:1},
-    {mes:3,cliente:'BAYER SA',                  tipo:'TLS',detalle:'Búsqueda Gerencia Final',             factura:'001-001-6180',pago:'FIN',monto:8000000, com:800000,  no_hab:0,      habilita:true, anio_em:2026,mes_em:3},
+    {mes:1,cliente:'COOPERATIVA MULTIRED',tipo:'TLS',detalle:'Búsqueda Analista Inicial',factura:'001-001-5790',pago:'INI',monto:2800000,com:224000,no_hab:0,habilita:true,anio_em:2026,mes_em:1},
+    {mes:3,cliente:'BAYER SA',            tipo:'TLS',detalle:'Búsqueda Gerencia Final',   factura:'001-001-6180',pago:'FIN',monto:8000000,com:800000,no_hab:0,habilita:true,anio_em:2026,mes_em:3},
   ],
   blanca_q:[
-    {mes:2,cliente:'FRIGOMERC SA',              tipo:'TLS',detalle:'Búsqueda Auxiliar Inicial',           factura:'001-001-5900',pago:'INI',monto:1500000, com:120000,  no_hab:0,      habilita:true, anio_em:2026,mes_em:2},
-    {mes:3,cliente:'FRIGOMERC SA',              tipo:'TLS',detalle:'Búsqueda Auxiliar Final',             factura:'001-001-6101',pago:'FIN',monto:900000,  com:72000,   no_hab:0,      habilita:true, anio_em:2026,mes_em:3},
+    {mes:2,cliente:'FRIGOMERC SA',tipo:'TLS',detalle:'Búsqueda Auxiliar Inicial',factura:'001-001-5900',pago:'INI',monto:1500000,com:120000,no_hab:0,habilita:true,anio_em:2026,mes_em:2},
+    {mes:3,cliente:'FRIGOMERC SA',tipo:'TLS',detalle:'Búsqueda Auxiliar Final',   factura:'001-001-6101',pago:'FIN',monto:900000, com:72000, no_hab:0,habilita:true,anio_em:2026,mes_em:3},
   ],
   maria_paz:[
-    {mes:1,cliente:'AGROPECUARIA GUADALUPE',    tipo:'IRH',detalle:'Taller Compensaciones Inicial',       factura:'001-003-495', pago:'INI',monto:4581818, com:300000,  no_hab:0,      habilita:true, anio_em:2026,mes_em:1},
-    {mes:1,cliente:'TRESMA S.A.',               tipo:'TLS',detalle:'Búsqueda Asesor Comercial',           factura:'001-001-5635',pago:'INI',monto:1650000, com:132000,  no_hab:0,      habilita:true, anio_em:2026,mes_em:1},
-    {mes:2,cliente:'AGROPECUARIA GUADALUPE',    tipo:'IRH',detalle:'Taller Compensaciones Feb',           factura:'001-003-512', pago:'TOT',monto:4581818, com:970000,  no_hab:0,      habilita:true, anio_em:2026,mes_em:2},
-    {mes:3,cliente:'TRESMA S.A.',               tipo:'TLS',detalle:'Búsqueda Final',                      factura:'001-001-6090',pago:'FIN',monto:1650000, com:132000,  no_hab:0,      habilita:true, anio_em:2026,mes_em:3},
-    {mes:3,cliente:'AGROPECUARIA GUADALUPE',    tipo:'IRH',detalle:'Taller Compensaciones Mar',           factura:'001-003-528', pago:'TOT',monto:4581818, com:470000,  no_hab:0,      habilita:true, anio_em:2026,mes_em:3},
+    {mes:1,cliente:'AGROPECUARIA GUADALUPE',tipo:'IRH',detalle:'Taller Compensaciones Inicial',factura:'001-003-495',pago:'INI',monto:4581818,com:300000,no_hab:0,habilita:true,anio_em:2026,mes_em:1},
+    {mes:1,cliente:'TRESMA S.A.',           tipo:'TLS',detalle:'Búsqueda Asesor Comercial',     factura:'001-001-5635',pago:'INI',monto:1650000,com:132000,no_hab:0,habilita:true,anio_em:2026,mes_em:1},
+    {mes:2,cliente:'AGROPECUARIA GUADALUPE',tipo:'IRH',detalle:'Taller Compensaciones Feb',     factura:'001-003-512',pago:'TOT',monto:4581818,com:970000,no_hab:0,habilita:true,anio_em:2026,mes_em:2},
+    {mes:3,cliente:'TRESMA S.A.',           tipo:'TLS',detalle:'Búsqueda Final',                factura:'001-001-6090',pago:'FIN',monto:1650000,com:132000,no_hab:0,habilita:true,anio_em:2026,mes_em:3},
+    {mes:3,cliente:'AGROPECUARIA GUADALUPE',tipo:'IRH',detalle:'Taller Compensaciones Mar',     factura:'001-003-528',pago:'TOT',monto:4581818,com:470000,no_hab:0,habilita:true,anio_em:2026,mes_em:3},
   ],
   paula:[
-    {mes:1,cliente:'CAJA ITAIPU',               tipo:'CNT',detalle:'Manual de Procedimientos Final',      factura:'001-001-5699',pago:'FIN',monto:50909090,com:53454,   no_hab:0,      habilita:true, anio_em:2026,mes_em:1},
-    {mes:1,cliente:'ALO FOODS E.A.S.',          tipo:'TLS',detalle:'Búsqueda Jefe Operativo Inicial',     factura:'001-001-5673',pago:'INI',monto:5000000, com:400000,  no_hab:0,      habilita:true, anio_em:2026,mes_em:1},
-    {mes:2,cliente:'CAJA ITAIPU',               tipo:'CNT',detalle:'Consultoría Procesos Feb',            factura:'001-001-6001',pago:'FIN',monto:12000000,com:1283636, no_hab:0,      habilita:true, anio_em:2026,mes_em:2},
-    {mes:2,cliente:'BANCO GNB SA',              tipo:'TLS',detalle:'Búsqueda Analista Final',             factura:'001-001-6020',pago:'FIN',monto:5880000, com:470400,  no_hab:0,      habilita:true, anio_em:2026,mes_em:2},
-    {mes:2,cliente:'+Marka',                    tipo:'MARKA',detalle:'Reunión no estratégica Feb',        factura:'—',           pago:'—', monto:0,        com:50000,   no_hab:0,      habilita:true, anio_em:2026,mes_em:2},
-    {mes:3,cliente:'CAJA ITAIPU',               tipo:'CNT',detalle:'Consultoría Procesos Mar',            factura:'001-001-6150',pago:'FIN',monto:12000000,com:4096818, no_hab:0,      habilita:true, anio_em:2026,mes_em:3},
-    {mes:3,cliente:'OPERADORA LOG SA',          tipo:'OUT', detalle:'Contrato Temporal — Cajera',         factura:'—',           pago:'—', monto:0,        com:1200000, no_hab:0,      habilita:true, anio_em:2026,mes_em:3},
-    {mes:3,cliente:'+Marka',                    tipo:'MARKA',detalle:'Servicio Activación Mar + Reunión', factura:'—',           pago:'—', monto:0,        com:850000,  no_hab:0,      habilita:true, anio_em:2026,mes_em:3},
+    {mes:1,cliente:'CAJA ITAIPU',      tipo:'CNT',  detalle:'Manual de Procedimientos Final',   factura:'001-001-5699',pago:'FIN',monto:50909090,com:53454,  no_hab:0,habilita:true,anio_em:2026,mes_em:1},
+    {mes:1,cliente:'ALO FOODS E.A.S.', tipo:'TLS',  detalle:'Búsqueda Jefe Operativo Inicial',  factura:'001-001-5673',pago:'INI',monto:5000000, com:400000, no_hab:0,habilita:true,anio_em:2026,mes_em:1},
+    {mes:2,cliente:'CAJA ITAIPU',      tipo:'CNT',  detalle:'Consultoría Procesos Feb',          factura:'001-001-6001',pago:'FIN',monto:12000000,com:1283636,no_hab:0,habilita:true,anio_em:2026,mes_em:2},
+    {mes:2,cliente:'BANCO GNB SA',     tipo:'TLS',  detalle:'Búsqueda Analista Final',           factura:'001-001-6020',pago:'FIN',monto:5880000, com:470400, no_hab:0,habilita:true,anio_em:2026,mes_em:2},
+    {mes:2,cliente:'+Marka',           tipo:'MARKA',detalle:'Reunión no estratégica Feb',        factura:'—',           pago:'—', monto:0,        com:50000,  no_hab:0,habilita:true,anio_em:2026,mes_em:2},
+    {mes:3,cliente:'CAJA ITAIPU',      tipo:'CNT',  detalle:'Consultoría Procesos Mar',          factura:'001-001-6150',pago:'FIN',monto:12000000,com:4096818,no_hab:0,habilita:true,anio_em:2026,mes_em:3},
+    {mes:3,cliente:'OPERADORA LOG SA', tipo:'OUT',  detalle:'Contrato Temporal — Cajera',        factura:'—',           pago:'—', monto:0,        com:1200000,no_hab:0,habilita:true,anio_em:2026,mes_em:3},
+    {mes:3,cliente:'+Marka',           tipo:'MARKA',detalle:'Servicio Activación + Reunión',     factura:'—',           pago:'—', monto:0,        com:850000, no_hab:0,habilita:true,anio_em:2026,mes_em:3},
   ],
   mj:[
-    {mes:1,cliente:'SUPERMERCADOS STOCK SA',    tipo:'TLS',detalle:'Búsqueda Analista Inicial',           factura:'001-001-5780',pago:'INI',monto:3100000, com:248000,  no_hab:0,      habilita:true, anio_em:2026,mes_em:1},
-    {mes:2,cliente:'SUPERMERCADOS STOCK SA',    tipo:'TLS',detalle:'Búsqueda Analista Final',             factura:'001-001-5980',pago:'FIN',monto:5500000, com:440000,  no_hab:0,      habilita:true, anio_em:2026,mes_em:2},
-    {mes:3,cliente:'GRUPO FIRME SA',            tipo:'TLS',detalle:'Búsqueda Gerencia Inicial',           factura:'001-001-6200',pago:'INI',monto:9000000, com:900000,  no_hab:0,      habilita:true, anio_em:2026,mes_em:3},
+    {mes:1,cliente:'SUPERMERCADOS STOCK SA',tipo:'TLS',detalle:'Búsqueda Analista Inicial',factura:'001-001-5780',pago:'INI',monto:3100000,com:248000,no_hab:0,habilita:true,anio_em:2026,mes_em:1},
+    {mes:2,cliente:'SUPERMERCADOS STOCK SA',tipo:'TLS',detalle:'Búsqueda Analista Final',   factura:'001-001-5980',pago:'FIN',monto:5500000,com:440000,no_hab:0,habilita:true,anio_em:2026,mes_em:2},
+    {mes:3,cliente:'GRUPO FIRME SA',        tipo:'TLS',detalle:'Búsqueda Gerencia Inicial', factura:'001-001-6200',pago:'INI',monto:9000000,com:900000,no_hab:0,habilita:true,anio_em:2026,mes_em:3},
   ],
 };
 
@@ -610,8 +552,8 @@ const facturas_ec = {
 // ESTADO
 // ═══════════════════════════════════════════════════════════════════════════
 let currentUser = null;
-let adminUser   = null; // cuando admin impersona
-let mesActual   = 2;    // 0-based (Marzo)
+let adminUser   = null;
+let mesActual   = 2;
 let currentView = null;
 let darkMode    = false;
 
@@ -624,22 +566,11 @@ const pctTLS = a => a<0.6?0:a<0.91?0.08:a<1.2?0.10:0.12;
 const pctCls = a => a>=0.91?'pct-green':a>=0.6?'pct-gold':'pct-red';
 const barCls = a => a>=0.91?'pb-green':a>=0.6?'pb-gold':'pb-red';
 const pctLbl = a => a<0.6?'0%':a<0.91?'8%':a<1.2?'10%':'12%';
-
 const getOUT   = (id,m) => com_out.filter(r=>r.ec===id&&r.mes===m).reduce((s,r)=>s+r.monto,0);
 const getMarka = (id,m) => com_marka.filter(r=>r.ec===id&&r.mes===m).reduce((s,r)=>s+r.monto,0);
 const getDesc  = (id,m) => descuentos.filter(r=>r.ec===id&&r.mes===m).reduce((s,r)=>s+r.monto,0);
-
-function totalEC(id, m) {
-  return (tls_com[id]?.[m]||0)+(com_cnt[id]?.[m]||0)+(com_irh[id]?.[m]||0)+getOUT(id,m)+getMarka(id,m)-getDesc(id,m);
-}
-
-function getECId() {
-  return currentUser.uid.replace('ec_','');
-}
-
-function ecFromNombre(nombre) {
-  return ECS.find(e=>e.nombre===nombre);
-}
+function totalEC(id,m){ return (tls_com[id]?.[m]||0)+(com_cnt[id]?.[m]||0)+(com_irh[id]?.[m]||0)+getOUT(id,m)+getMarka(id,m)-getDesc(id,m); }
+function getECId(){ return currentUser.uid.replace('ec_',''); }
 
 // ═══════════════════════════════════════════════════════════════════════════
 // AUTH
@@ -666,7 +597,6 @@ function doLogout() {
   document.getElementById('app').style.display='none';
   document.getElementById('login-pass').value='';
   document.getElementById('login-user').value='';
-  document.getElementById('quick-admin').style.display='none';
 }
 
 function impersonar(uid) {
@@ -684,7 +614,7 @@ function volverAdmin() {
   initApp();
 }
 
-document.getElementById('login-pass').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
+document.getElementById('login-pass').addEventListener('keydown',e=>{ if(e.key==='Enter') doLogin(); });
 
 function toggleDark() {
   darkMode=!darkMode;
@@ -705,13 +635,7 @@ function initApp() {
   document.getElementById('sidebar-name').textContent=currentUser.nombre;
   document.getElementById('sidebar-role').textContent=currentUser.rol;
   buildNav();
-  // Conectar al Sheets en background
   conectarSheets();
-  // Quick access para admin
-  if (currentUser.tipo==='admin'||adminUser) {
-    const qg=document.getElementById('quick-admin');
-    qg.style.display='none'; // solo en login screen
-  }
   showView(getFirstView());
 }
 
@@ -727,33 +651,33 @@ function buildNav() {
   if(currentUser.tipo==='admin') {
     items=[
       {s:'GENERAL'},
-      {id:'dashboard',    icon:'📊', label:'Dashboard'},
-      {id:'todas-ec',     icon:'👥', label:'Ejecutivas Comerciales'},
-      {id:'admin-impersonate',icon:'🔀',label:'Acceso rápido por perfil'},
+      {id:'dashboard',         icon:'📊',label:'Dashboard'},
+      {id:'todas-ec',          icon:'👥',label:'Ejecutivas Comerciales'},
+      {id:'admin-impersonate', icon:'🔀',label:'Acceso rápido por perfil'},
       {s:'COMISIONES UN'},
-      {id:'admin-tls',    icon:'🔵', label:'TLS — Confirmación'},
-      {id:'admin-cnt',    icon:'🟢', label:'CNT — Montos'},
-      {id:'admin-irh',    icon:'🟢', label:'iRH — Montos'},
-      {id:'admin-out',    icon:'🟠', label:'OUT — Tercerización'},
-      {id:'admin-marka',  icon:'🟣', label:'+Marka — Servicios'},
+      {id:'admin-tls',   icon:'🔵',label:'TLS — Confirmación'},
+      {id:'admin-cnt',   icon:'🟢',label:'CNT — Montos'},
+      {id:'admin-irh',   icon:'🟢',label:'iRH — Montos'},
+      {id:'admin-out',   icon:'🟠',label:'OUT — Tercerización'},
+      {id:'admin-marka', icon:'🟣',label:'+Marka — Servicios'},
       {s:'CONFIGURACIÓN'},
-      {id:'admin-config', icon:'⚙️', label:'Objetivos & Config'},
-      {id:'admin-usuarios', icon:'👤', label:'Gestión de Usuarios'},
+      {id:'admin-config',    icon:'⚙️',label:'Objetivos & Config'},
+      {id:'admin-usuarios',  icon:'👤',label:'Gestión de Usuarios'},
     ];
   } else if(currentUser.tipo==='ec') {
     items=[
       {s:'MIS COMISIONES'},
-      {id:'mi-resumen',   icon:'📋', label:'Resumen Anual'},
-      {id:'mis-facturas', icon:'🧾', label:'Detalle de Facturas'},
-      {id:'mi-alcance',   icon:'📈', label:'Alcance TLS'},
+      {id:'mi-resumen',   icon:'📋',label:'Resumen Anual'},
+      {id:'mis-facturas', icon:'🧾',label:'Detalle de Facturas'},
+      {id:'mi-alcance',   icon:'📈',label:'Alcance TLS'},
     ];
   } else if(currentUser.tipo==='un') {
     const un=currentUser.un;
     items=[
       {s:`ÁREA ${un}`},
-      {id:'un-main',      icon:'📋', label:'Facturas & Comisiones'},
-      {id:'un-resumen',   icon:'📊', label:'Resumen por Ejecutiva'},
-      {id:'un-historico', icon:'🕐', label:'Histórico'},
+      {id:'un-main',      icon:'📋',label:'Facturas & Comisiones'},
+      {id:'un-resumen',   icon:'📊',label:'Resumen por Ejecutiva'},
+      {id:'un-historico', icon:'🕐',label:'Histórico'},
     ];
   }
   nav.innerHTML=items.map(it=>{
@@ -768,22 +692,22 @@ function showView(id) {
   const el=document.getElementById('nav-'+id);
   if(el) el.classList.add('active');
   const titles={
-    'dashboard':        ['Dashboard General','Vista consolidada de comisiones 2026'],
-    'todas-ec':         ['Ejecutivas Comerciales','Estado de comisiones por ejecutiva'],
-    'admin-impersonate':['Acceso rápido','Entrá al perfil de cualquier ejecutiva o área'],
-    'admin-tls':        ['TLS — Confirmación','Facturas TLS pendientes de confirmación del área'],
-    'admin-cnt':        ['CNT — Montos','Cargá los montos de comisión por factura'],
-    'admin-irh':        ['iRH — Montos','Cargá los montos de comisión por factura'],
-    'admin-out':        ['Tercerización (OUT)','Cargá montos y servicio por ejecutiva'],
-    'admin-marka':      ['+Marka — Servicios & Reuniones','Servicios libres · Reuniones con monto fijo'],
-    'admin-config':     ['Objetivos & Configuración','Gestión de objetivos y parámetros del sistema'],
-    'admin-usuarios':   ['Gestión de Usuarios','Crear usuarios, asignar roles y cambiar contraseñas'],
-    'mi-resumen':       ['Resumen Anual','Comisiones por unidad de negocio — 2026'],
-    'mis-facturas':     ['Detalle de Facturas','Todas tus facturas con estado de habilitación'],
-    'mi-alcance':       ['Alcance TLS','Facturación vs objetivo — tramos de comisión'],
-    'un-main':          [`Facturas ${currentUser.un||''} — ${MESES[mesActual]} 2026`,'Completá comisiones del mes'],
-    'un-resumen':       [`Resumen ${currentUser.un||''} — Total por ejecutiva`,'Comisiones habilitadas acumuladas'],
-    'un-historico':     ['Histórico de Comisiones','Registro completo por ejecutiva y mes'],
+    'dashboard':         ['Dashboard General','Vista consolidada de comisiones 2026'],
+    'todas-ec':          ['Ejecutivas Comerciales','Estado de comisiones por ejecutiva'],
+    'admin-impersonate': ['Acceso rápido','Entrá al perfil de cualquier ejecutiva o área'],
+    'admin-tls':         ['TLS — Confirmación','Facturas TLS pendientes de confirmación del área'],
+    'admin-cnt':         ['CNT — Montos','Cargá los montos de comisión por factura'],
+    'admin-irh':         ['iRH — Montos','Cargá los montos de comisión por factura'],
+    'admin-out':         ['Tercerización (OUT)','Cargá montos y servicio por ejecutiva'],
+    'admin-marka':       ['+Marka — Servicios & Reuniones','Servicios libres · Reuniones con monto fijo'],
+    'admin-config':      ['Objetivos & Configuración','Gestión de objetivos y parámetros del sistema'],
+    'admin-usuarios':    ['Gestión de Usuarios','Crear usuarios, asignar roles y cambiar contraseñas'],
+    'mi-resumen':        ['Resumen Anual','Comisiones por unidad de negocio — 2026'],
+    'mis-facturas':      ['Detalle de Facturas','Todas tus facturas con estado de habilitación'],
+    'mi-alcance':        ['Alcance TLS','Facturación vs objetivo — tramos de comisión'],
+    'un-main':           [`Facturas ${currentUser.un||''} — ${MESES[mesActual]} 2026`,'Completá comisiones del mes'],
+    'un-resumen':        [`Resumen ${currentUser.un||''} — Total por ejecutiva`,'Comisiones habilitadas acumuladas'],
+    'un-historico':      ['Histórico de Comisiones','Registro completo por ejecutiva y mes'],
   };
   const t=titles[id]||['',''];
   document.getElementById('topbar-title').textContent=t[0];
@@ -800,7 +724,7 @@ function showView(id) {
     'admin-config':renderConfig,
     'admin-usuarios':renderAdminUsuarios,
     'mi-resumen':renderMiResumen,
-    'mis-facturas':()=>renderMisFacturas(getECId(), mesActual),
+    'mis-facturas':()=>renderMisFacturas(getECId(),mesActual),
     'mi-alcance':renderMiAlcance,
     'un-main':renderUNMain,
     'un-resumen':renderUNResumen,
@@ -812,33 +736,26 @@ function showView(id) {
 const renderEmpty=()=>`<div style="text-align:center;padding:60px;color:var(--text3)"><div style="font-size:36px;margin-bottom:12px">🔧</div><p>En construcción</p></div>`;
 
 // ═══════════════════════════════════════════════════════════════════════════
-// DASHBOARD ADMIN
+// DASHBOARD
 // ═══════════════════════════════════════════════════════════════════════════
 function renderDashboard() {
-  const totalAnio=ECS.reduce((s,ec)=>{
-    let t=0;
-    for(let m=0;m<=mesActual;m++) t+=totalEC(ec.id,m);
-    return s+t;
-  },0);
+  const totalAnio=ECS.reduce((s,ec)=>{ let t=0; for(let m=0;m<=mesActual;m++) t+=totalEC(ec.id,m); return s+t; },0);
   const totalMes=ECS.reduce((s,ec)=>s+totalEC(ec.id,mesActual),0);
   const sinHab=ECS.filter(ec=>(alcance_tls[ec.id]?.[mesActual]||0)<0.6);
   const pendTLS=3; const pendCNT=1; const pendIRH=1;
   const pend=pendTLS+pendCNT+pendIRH;
-
-  // Checklist proceso mes
   const checks=[
-    {ok:true,  warn:false, label:'Descarga cobranzas del tablero',       sub:'Datos de '+MESES[mesActual]+' pegados en BBDD'},
-    {ok:true,  warn:false, label:'Carga SAP — facturación TLS',           sub:'Alcance calculado para todas las ejecutivas'},
-    {ok:false, warn:false, label:`TLS — Confirmación del área (${pendTLS} pendientes)`, sub:'Faltan '+pendTLS+' facturas sin confirmar'},
-    {ok:false, warn:false, label:`CNT — Montos de comisión (${pendCNT} pendientes)`,    sub:'Faltan '+pendCNT+' facturas sin monto'},
-    {ok:false, warn:true,  label:`iRH — Montos de comisión (${pendIRH} pendiente)`,     sub:'Faltar '+pendIRH+' factura sin monto'},
-    {ok:com_out.filter(r=>r.mes===mesActual).length>0, warn:false, label:'OUT — Comisiones de Tercerización', sub:com_out.filter(r=>r.mes===mesActual).length>0?com_out.filter(r=>r.mes===mesActual).length+' registros cargados':'Sin comisiones OUT este mes — verificar'},
-    {ok:com_marka.filter(r=>r.mes===mesActual).length>0, warn:false, label:'+Marka — Servicios y Reuniones', sub:com_marka.filter(r=>r.mes===mesActual).length>0?com_marka.filter(r=>r.mes===mesActual).length+' registros cargados':'Sin registros +Marka — verificar'},
-    {ok:descuentos.filter(r=>r.mes===mesActual).length===sinHab.length||sinHab.length===0, warn:sinHab.length>0, label:`Descuento 25% — ECs sin habilitar (${sinHab.length})`, sub:sinHab.length>0?'Aplicar descuento a: '+sinHab.map(e=>e.nombre.split(' ')[0]).join(', '):'Todas habilitaron — sin descuentos'},
-    {ok:false, warn:false, label:'Verificación final con todas las áreas', sub:'Confirmar montos con TLS, CNT, iRH, OUT y +Marka'},
-    {ok:false, warn:false, label:'Notificar a ejecutivas',                 sub:'Avisarles que ya pueden ver sus comisiones'},
+    {ok:true, warn:false,label:'Descarga cobranzas del tablero',       sub:'Datos de '+MESES[mesActual]+' pegados en BBDD'},
+    {ok:true, warn:false,label:'Carga SAP — facturación TLS',           sub:'Alcance calculado para todas las ejecutivas'},
+    {ok:false,warn:false,label:`TLS — Confirmación del área (${pendTLS} pendientes)`,sub:'Faltan '+pendTLS+' facturas sin confirmar'},
+    {ok:false,warn:false,label:`CNT — Montos de comisión (${pendCNT} pendientes)`,   sub:'Faltan '+pendCNT+' facturas sin monto'},
+    {ok:false,warn:true, label:`iRH — Montos de comisión (${pendIRH} pendiente)`,    sub:'Falta '+pendIRH+' factura sin monto'},
+    {ok:com_out.filter(r=>r.mes===mesActual).length>0,warn:false,label:'OUT — Comisiones de Tercerización',sub:com_out.filter(r=>r.mes===mesActual).length>0?com_out.filter(r=>r.mes===mesActual).length+' registros cargados':'Sin comisiones OUT este mes — verificar'},
+    {ok:com_marka.filter(r=>r.mes===mesActual).length>0,warn:false,label:'+Marka — Servicios y Reuniones',sub:com_marka.filter(r=>r.mes===mesActual).length>0?com_marka.filter(r=>r.mes===mesActual).length+' registros cargados':'Sin registros +Marka — verificar'},
+    {ok:descuentos.filter(r=>r.mes===mesActual).length===sinHab.length||sinHab.length===0,warn:sinHab.length>0,label:`Descuento 25% — ECs sin habilitar (${sinHab.length})`,sub:sinHab.length>0?'Aplicar descuento a: '+sinHab.map(e=>e.nombre.split(' ')[0]).join(', '):'Todas habilitaron — sin descuentos'},
+    {ok:false,warn:false,label:'Verificación final con todas las áreas',sub:'Confirmar montos con TLS, CNT, iRH, OUT y +Marka'},
+    {ok:false,warn:false,label:'Notificar a ejecutivas',                sub:'Avisarles que ya pueden ver sus comisiones'},
   ];
-
   return `
   <div class="stats-grid">
     <div class="stat-card navy"><div class="stat-label">Total año acumulado</div><div class="stat-value">${fmtN(totalAnio)}</div><div class="stat-sub">Gs. — hasta ${MESES[mesActual]} 2026</div></div>
@@ -846,46 +763,43 @@ function renderDashboard() {
     <div class="stat-card ${pend>0?'red':'green'}"><div class="stat-label">Pendientes UN</div><div class="stat-value">${pend}</div><div class="stat-sub">facturas sin confirmar/completar</div></div>
     <div class="stat-card ${sinHab.length>0?'red':'green'}"><div class="stat-label">Sin habilitar TLS</div><div class="stat-value">${sinHab.length} / ${ECS.length}</div><div class="stat-sub">${sinHab.length>0?sinHab.map(e=>e.nombre.split(' ')[0]).join(', '):'Todas habilitaron ✓'}</div></div>
   </div>
-
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
-    <div>
-      <div class="card">
-        <div class="card-header"><div class="card-title">✅ Checklist del proceso — ${MESES[mesActual]} 2026</div></div>
-        <div style="padding:14px 16px;display:flex;flex-direction:column;gap:6px">
-          ${checks.map(c=>`
-          <div class="checklist-item ${c.ok?'done':c.warn?'warn':'pend'}">
-            <div class="check-icon ${c.ok?'icon-done':c.warn?'icon-warn':'icon-pend'}">${c.ok?'✓':c.warn?'⚠':'○'}</div>
-            <div><div class="check-label" style="${c.ok?'text-decoration:line-through;color:var(--text3)':''}">${c.label}</div><div class="check-sub">${c.sub}</div></div>
-          </div>`).join('')}
-        </div>
+    <div class="card">
+      <div class="card-header"><div class="card-title">✅ Checklist del proceso — ${MESES[mesActual]} 2026</div></div>
+      <div style="padding:14px 16px;display:flex;flex-direction:column;gap:6px">
+        ${checks.map(c=>`
+        <div class="checklist-item ${c.ok?'done':c.warn?'warn':'pend'}">
+          <div class="check-icon ${c.ok?'icon-done':c.warn?'icon-warn':'icon-pend'}">${c.ok?'✓':c.warn?'⚠':'○'}</div>
+          <div><div class="check-label" style="${c.ok?'text-decoration:line-through;color:var(--text3)':''}">${c.label}</div><div class="check-sub">${c.sub}</div></div>
+        </div>`).join('')}
       </div>
     </div>
-    <div>
-      <div class="card">
-        <div class="card-header"><div class="card-title">Estado por ejecutiva — ${MESES[mesActual]}</div></div>
-        <table>
-          <thead><tr><th>Ejecutiva</th><th>Alcance TLS</th><th>Total mes</th><th>Desc.</th></tr></thead>
-          <tbody>
-            ${ECS.map(ec=>{
-              const alc=alcance_tls[ec.id]?.[mesActual]||0;
-              const tot=totalEC(ec.id,mesActual);
-              const desc=getDesc(ec.id,mesActual);
-              return `<tr style="${alc<0.6?'background:#fff8f8':''}">
-                <td><div style="display:flex;align-items:center;gap:8px"><div style="width:26px;height:26px;border-radius:6px;background:${ec.color};display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;flex-shrink:0">${ec.nombre.split(' ').map(w=>w[0]).slice(0,2).join('')}</div><span style="font-weight:600;font-size:12px">${ec.nombre}</span></div></td>
-                <td><div class="alcance-wrap"><div class="alcance-bar-outer"><div class="alcance-bar-inner ${barCls(alc)}" style="width:${Math.min(alc*100,100)}%"></div></div><span class="alcance-pct ${pctCls(alc)}">${(alc*100).toFixed(1)}%</span></div></td>
-                <td class="td-mono td-right td-bold" style="color:var(--jobs-navy)">${tot>0?fmtN(tot):'—'}</td>
-                <td class="td-mono td-right" style="color:${desc>0?'var(--red)':'var(--text3)'}">${desc>0?'-'+fmtN(desc):'—'}</td>
-              </tr>`;
-            }).join('')}
-          </tbody>
-        </table>
-      </div>
+    <div class="card">
+      <div class="card-header"><div class="card-title">Estado por ejecutiva — ${MESES[mesActual]}</div></div>
+      <table>
+        <thead><tr><th>Ejecutiva</th><th>Alcance TLS</th><th>Total mes</th><th>Desc.</th></tr></thead>
+        <tbody>
+          ${ECS.map(ec=>{
+            const alc=alcance_tls[ec.id]?.[mesActual]||0;
+            const tot=totalEC(ec.id,mesActual);
+            const desc=getDesc(ec.id,mesActual);
+            return `<tr style="${alc<0.6?'background:#fff8f8':''}">
+              <td><div style="display:flex;align-items:center;gap:8px">
+                <div style="width:26px;height:26px;border-radius:6px;background:${ec.color};display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;flex-shrink:0">${ec.nombre.split(' ').map(w=>w[0]).slice(0,2).join('')}</div>
+                <span style="font-weight:600;font-size:12px">${ec.nombre}</span></div></td>
+              <td><div class="alcance-wrap"><div class="alcance-bar-outer"><div class="alcance-bar-inner ${barCls(alc)}" style="width:${Math.min(alc*100,100)}%"></div></div><span class="alcance-pct ${pctCls(alc)}">${(alc*100).toFixed(1)}%</span></div></td>
+              <td class="td-mono td-right td-bold" style="color:var(--jobs-navy)">${tot>0?fmtN(tot):'—'}</td>
+              <td class="td-mono td-right" style="color:${desc>0?'var(--red)':'var(--text3)'}">${desc>0?'-'+fmtN(desc):'—'}</td>
+            </tr>`;
+          }).join('')}
+        </tbody>
+      </table>
     </div>
   </div>`;
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// IMPERSONATE (acceso rápido admin)
+// IMPERSONATE
 // ═══════════════════════════════════════════════════════════════════════════
 function renderImpersonate() {
   const ecPerfiles=Object.entries(USUARIOS).filter(([k,v])=>v.tipo==='ec');
@@ -928,7 +842,9 @@ function renderTodasEC() {
           const desc=getDesc(ec.id,mesActual);
           const tot=tls+cnt+irh+out+marka-desc;
           return `<tr style="${alc<0.6?'background:#fff8f8':''}">
-            <td><div style="display:flex;align-items:center;gap:8px"><div style="width:28px;height:28px;border-radius:7px;background:${ec.color};display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff">${ec.nombre.split(' ').map(w=>w[0]).slice(0,2).join('')}</div><span class="td-bold">${ec.nombre}</span></div></td>
+            <td><div style="display:flex;align-items:center;gap:8px">
+              <div style="width:28px;height:28px;border-radius:7px;background:${ec.color};display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff">${ec.nombre.split(' ').map(w=>w[0]).slice(0,2).join('')}</div>
+              <span class="td-bold">${ec.nombre}</span></div></td>
             <td><div class="alcance-wrap"><div class="alcance-bar-outer"><div class="alcance-bar-inner ${barCls(alc)}" style="width:${Math.min(alc*100,100)}%"></div></div><span class="alcance-pct ${pctCls(alc)}">${(alc*100).toFixed(1)}%</span></div></td>
             <td class="td-mono td-right">${tls>0?fmtN(tls):'—'}</td>
             <td class="td-mono td-right">${cnt>0?fmtN(cnt):'—'}</td>
@@ -945,7 +861,7 @@ function renderTodasEC() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// COMISIONES UN (TLS/CNT/IRH admin)
+// COMISIONES UN
 // ═══════════════════════════════════════════════════════════════════════════
 function renderComisionesUN(un) {
   const facts={
@@ -957,26 +873,24 @@ function renderComisionesUN(un) {
       {ec:'Andrea Zarza',    cliente:'BANCO FAMILIAR',fact:'001-001-6021',pago:'FIN',mes_em:2,anio_em:2026,monto:5100000,pct:0.08,com:408000,conf:''},
     ],
     CNT:[
-      {ec:'Pamela Gonzalez',cliente:'TEMARA S.A',     fact:'001-001-6268',det:'Def. Indicadores Final',  mes_p:3,mes_em:2,anio_em:2026,monto:4654545,com:0,      hab:'',    obs:''},
-      {ec:'Paula Viveros',  cliente:'CAJA ITAIPU',    fact:'001-001-5699',det:'Manual Procedimientos',   mes_p:1,mes_em:1,anio_em:2026,monto:50909090,com:53454, hab:'Sí',  obs:''},
-      {ec:'Paula Viveros',  cliente:'CAJA ITAIPU',    fact:'001-001-6001',det:'Consultoría Procesos Feb', mes_p:2,mes_em:2,anio_em:2026,monto:12000000,com:1283636,hab:'Sí', obs:''},
-      {ec:'Andrea Zarza',   cliente:'BANCO BASA S.A.',fact:'001-001-5912',det:'Consultoría RRHH Q1',     mes_p:2,mes_em:2,anio_em:2026,monto:8000000, com:0,      hab:'No',  obs:'TLS feb <60% — descuento 25% aplicado'},
+      {ec:'Pamela Gonzalez',cliente:'TEMARA S.A',     fact:'001-001-6268',det:'Def. Indicadores Final',   mes_p:3,mes_em:2,anio_em:2026,monto:4654545, com:0,      hab:'',   obs:''},
+      {ec:'Paula Viveros',  cliente:'CAJA ITAIPU',    fact:'001-001-5699',det:'Manual Procedimientos',    mes_p:1,mes_em:1,anio_em:2026,monto:50909090,com:53454,  hab:'Sí', obs:''},
+      {ec:'Paula Viveros',  cliente:'CAJA ITAIPU',    fact:'001-001-6001',det:'Consultoría Procesos Feb',  mes_p:2,mes_em:2,anio_em:2026,monto:12000000,com:1283636,hab:'Sí', obs:''},
+      {ec:'Andrea Zarza',   cliente:'BANCO BASA S.A.',fact:'001-001-5912',det:'Consultoría RRHH Q1',      mes_p:2,mes_em:2,anio_em:2026,monto:8000000, com:0,      hab:'No', obs:'TLS feb <60% — descuento 25% aplicado'},
     ],
     IRH:[
-      {ec:'Maria Paz Rolon',cliente:'AGROPECUARIA',   fact:'001-003-495', det:'Taller Compensaciones',   mes_p:1,mes_em:1,anio_em:2026,monto:4581818,com:300000,hab:'Sí',obs:''},
-      {ec:'Maria Paz Rolon',cliente:'AGROPECUARIA',   fact:'001-003-512', det:'Taller Feb',              mes_p:2,mes_em:2,anio_em:2026,monto:4581818,com:970000,hab:'Sí',obs:''},
-      {ec:'Andrea Zarza',   cliente:'BANCO BASA S.A.',fact:'001-003-492', det:'Servicio iRH Renovación', mes_p:1,mes_em:12,anio_em:2025,monto:5454545,com:0,    hab:'Pend',obs:'Factura dic/2025 — confirmar % año anterior'},
-      {ec:'Blanca Sosa',    cliente:'PROFAR CO SA',   fact:'001-003-499', det:'Renovación Suscripción',  mes_p:3,mes_em:3,anio_em:2026,monto:5454545,com:0,    hab:'',    obs:''},
+      {ec:'Maria Paz Rolon',cliente:'AGROPECUARIA',   fact:'001-003-495', det:'Taller Compensaciones',    mes_p:1,mes_em:1,anio_em:2026,monto:4581818,com:300000,hab:'Sí',  obs:''},
+      {ec:'Maria Paz Rolon',cliente:'AGROPECUARIA',   fact:'001-003-512', det:'Taller Feb',               mes_p:2,mes_em:2,anio_em:2026,monto:4581818,com:970000,hab:'Sí',  obs:''},
+      {ec:'Andrea Zarza',   cliente:'BANCO BASA S.A.',fact:'001-003-492', det:'Servicio iRH Renovación',  mes_p:1,mes_em:12,anio_em:2025,monto:5454545,com:0,    hab:'Pend',obs:'Factura dic/2025 — confirmar % año anterior'},
+      {ec:'Blanca Sosa',    cliente:'PROFAR CO SA',   fact:'001-003-499', det:'Renovación Suscripción',   mes_p:3,mes_em:3,anio_em:2026,monto:5454545,com:0,    hab:'',    obs:''},
     ],
   }[un]||[];
-
   const totalHab=facts.filter(f=>f.hab==='Sí').reduce((s,f)=>s+(f.com||0),0);
-
   if(un==='TLS') return `
   <div class="card">
     <div class="card-header">
       <div><div class="card-title">🔵 TLS — ${MESES[mesActual]} 2026</div><div class="card-sub">Comisión calculada automáticamente. Si el área solicita ajuste del %, editarlo acá y recalcula.</div></div>
-      <div style="background:#ededf7;border-radius:8px;padding:8px 14px;text-align:center"><div style="font-size:10px;font-weight:700;color:var(--jobs-navy);letter-spacing:1px;text-transform:uppercase">Total confirmado</div><div style="font-family:var(--mono);font-size:15px;font-weight:700;color:var(--jobs-navy);margin-top:2px">${fmtN(totalHab)} Gs.</div></div>
+      <div style="background:#ededf7;border-radius:8px;padding:8px 14px;text-align:center"><div style="font-size:10px;font-weight:700;color:var(--jobs-navy);text-transform:uppercase">Total confirmado</div><div style="font-family:var(--mono);font-size:15px;font-weight:700;color:var(--jobs-navy)">${fmtN(totalHab)} Gs.</div></div>
     </div>
     <div style="overflow-x:auto"><table style="min-width:900px">
       <thead><tr><th>Ejecutiva</th><th>Cliente</th><th>Factura</th><th>Pago</th><th>Mes emisión</th><th style="text-align:right">Monto sin IVA</th><th>% Comisión</th><th style="text-align:right">Comisión</th><th>Confirma?</th><th>Obs.</th></tr></thead>
@@ -984,13 +898,12 @@ function renderComisionesUN(un) {
         ${facts.map((f,i)=>{
           const desfase=f.anio_em<2026;
           return `<tr>
-            <td class="td-bold">${f.ec}</td>
-            <td style="font-size:12px">${f.cliente}</td>
+            <td class="td-bold">${f.ec}</td><td style="font-size:12px">${f.cliente}</td>
             <td class="td-mono">${f.fact}</td>
             <td><span class="badge badge-tls">${f.pago}</span></td>
             <td class="td-mono">${MESES[f.mes_em-1]}/${f.anio_em}${desfase?'<span style="font-size:10px;color:var(--jobs-gold);margin-left:4px">↩</span>':''}</td>
             <td class="td-mono td-right">${fmtN(f.monto)}</td>
-            <td><input type="number" value="${f.pct*100}" min="0" max="20" step="1" style="width:60px;border:1px solid var(--border);border-radius:5px;padding:4px 6px;font-family:var(--mono);font-size:12px;background:var(--input-bg);color:var(--text)" onchange="facts_tls_pct_${i}=this.value/100;document.getElementById('tls_com_${i}').textContent=new Intl.NumberFormat('es-PY').format(Math.round(${f.monto}*(this.value/100)))+' Gs.'">%</td>
+            <td><input type="number" value="${f.pct*100}" min="0" max="20" step="1" style="width:60px;border:1px solid var(--border);border-radius:5px;padding:4px 6px;font-family:var(--mono);font-size:12px;background:var(--input-bg);color:var(--text)" onchange="document.getElementById('tls_com_${i}').textContent=new Intl.NumberFormat('es-PY').format(Math.round(${f.monto}*(this.value/100)))+' Gs.'">%</td>
             <td class="td-mono td-right" id="tls_com_${i}" style="color:var(--green);font-weight:700">${fmtN(f.com)} Gs.</td>
             <td>${f.conf==='Sí'?'<span class="badge badge-si">✓ Confirmado</span>':`<select class="select-std" style="font-size:12px"><option>Pendiente</option><option>✓ Confirmar</option><option>✗ Ajustar</option></select>`}</td>
             <td><input class="input-obs" placeholder="Observación..." style="width:160px"></td>
@@ -998,15 +911,16 @@ function renderComisionesUN(un) {
         }).join('')}
       </tbody>
     </table></div>
-    <div style="padding:12px 18px;border-top:1px solid var(--border);display:flex;justify-content:flex-end"><button class="btn-save" onclick="alert('Guardado ✓')">💾 Guardar</button></div>
+    <div style="padding:12px 18px;border-top:1px solid var(--border);display:flex;justify-content:flex-end">
+      <button class="btn-save" onclick="alert('Guardado ✓ — Próximamente se escribirá al Google Sheets via Apps Script')">💾 Guardar</button>
+    </div>
   </div>`;
 
-  // CNT / IRH
   return `
   <div class="card">
     <div class="card-header">
       <div><div class="card-title">${un==='CNT'?'🟢 CNT — Consultoría':'🟢 iRH'} — ${MESES[mesActual]} 2026</div><div class="card-sub">Celdas amarillas = ingresá el monto en Gs. Si no habilita, dejá en 0 y anotá el motivo.</div></div>
-      <div style="background:#f0fdf4;border-radius:8px;padding:8px 14px;text-align:center"><div style="font-size:10px;font-weight:700;color:var(--green);letter-spacing:1px;text-transform:uppercase">Total habilitado</div><div style="font-family:var(--mono);font-size:15px;font-weight:700;color:var(--green);margin-top:2px">${fmtN(totalHab)} Gs.</div></div>
+      <div style="background:#f0fdf4;border-radius:8px;padding:8px 14px;text-align:center"><div style="font-size:10px;font-weight:700;color:var(--green);text-transform:uppercase">Total habilitado</div><div style="font-family:var(--mono);font-size:15px;font-weight:700;color:var(--green)">${fmtN(totalHab)} Gs.</div></div>
     </div>
     <div style="overflow-x:auto"><table style="min-width:950px">
       <thead><tr><th>Mes proc.</th><th>Ejecutiva</th><th>Cliente</th><th>Detalle</th><th>Factura</th><th>Mes emis.</th><th style="text-align:right">Monto sin IVA</th><th>¿Habilita?</th><th>Comisión (Gs.)</th><th>Descuento 25%?</th><th>Obs.</th></tr></thead>
@@ -1032,7 +946,7 @@ function renderComisionesUN(un) {
     </table></div>
     <div style="padding:12px 18px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between">
       <span style="font-size:11px;color:var(--text3)">⚠ El descuento del 25% se aplica sobre el monto total que cobra la ejecutiva en esa UN en el mes, si no habilitó en TLS.</span>
-      <button class="btn-save" onclick="alert('Guardado ✓')">💾 Guardar</button>
+      <button class="btn-save" onclick="alert('Guardado ✓ — Próximamente se escribirá al Google Sheets via Apps Script')">💾 Guardar</button>
     </div>
   </div>`;
 }
@@ -1043,14 +957,16 @@ function renderComisionesUN(un) {
 function renderAdminOUT() {
   const rows=()=>{
     const r=com_out.filter(x=>x.mes===mesActual);
-    if(!r.length) return `<tr><td colspan="4" style="text-align:center;padding:28px;color:var(--text3)">Sin registros OUT en ${MESES[mesActual]}. Agregá uno abajo.</td></tr>`;
+    if(!r.length) return `<tr><td colspan="4" style="text-align:center;padding:28px;color:var(--text3)">Sin registros OUT en ${MESES[mesActual]}.</td></tr>`;
     return r.map((x,i)=>{const ec=ECS.find(e=>e.id===x.ec);return`<tr><td class="td-bold">${ec?ec.nombre:x.ec}</td><td style="font-size:12px">${x.servicio}</td><td class="td-mono td-right" style="color:var(--green);font-weight:700">${fmtN(x.monto)} Gs.</td><td><button class="btn-sm" style="color:var(--red)" onclick="com_out.splice(com_out.indexOf(com_out.filter(r=>r.mes===${mesActual})[${i}]),1);showView('admin-out')">✕</button></td></tr>`;}).join('');
   };
   const total=com_out.filter(x=>x.mes===mesActual).reduce((s,x)=>s+x.monto,0);
   return `
   <div class="card">
-    <div class="card-header"><div><div class="card-title">🟠 Tercerización (OUT) — ${MESES[mesActual]} 2026</div><div class="card-sub">Especificá el servicio para cada ejecutiva. Podés agregar múltiples registros.</div></div>
-    <div style="background:#fff7ed;border-radius:8px;padding:8px 14px;text-align:center"><div style="font-size:10px;font-weight:700;color:#c2410c;text-transform:uppercase">Total ${MESES[mesActual]}</div><div style="font-family:var(--mono);font-size:15px;font-weight:700;color:#c2410c">${fmtN(total)} Gs.</div></div></div>
+    <div class="card-header">
+      <div><div class="card-title">🟠 Tercerización (OUT) — ${MESES[mesActual]} 2026</div><div class="card-sub">Especificá el servicio para cada ejecutiva. Podés agregar múltiples registros.</div></div>
+      <div style="background:#fff7ed;border-radius:8px;padding:8px 14px;text-align:center"><div style="font-size:10px;font-weight:700;color:#c2410c;text-transform:uppercase">Total ${MESES[mesActual]}</div><div style="font-family:var(--mono);font-size:15px;font-weight:700;color:#c2410c">${fmtN(total)} Gs.</div></div>
+    </div>
     <div style="padding:14px 16px;background:var(--bg3);border-bottom:1px solid var(--border)">
       <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px">➕ Agregar registro</div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end">
@@ -1060,7 +976,7 @@ function renderAdminOUT() {
         <button class="btn-save" onclick="const ec=document.getElementById('out-ec').value,s=document.getElementById('out-serv').value.trim(),m=parseInt(document.getElementById('out-monto').value.replace(/[^0-9]/g,''))||0;if(!s||!m){alert('Completá todos los campos');return;}com_out.push({ec,mes:mesActual,monto:m,servicio:s});showView('admin-out')">+ Agregar</button>
       </div>
     </div>
-    <table><thead><tr><th>Ejecutiva</th><th>Servicio</th><th style="text-align:right">Monto</th><th></th></tr></thead><tbody id="out-tbody">${rows()}</tbody></table>
+    <table><thead><tr><th>Ejecutiva</th><th>Servicio</th><th style="text-align:right">Monto</th><th></th></tr></thead><tbody>${rows()}</tbody></table>
     <div style="padding:12px 16px;border-top:1px solid var(--border);display:flex;justify-content:flex-end"><button class="btn-save" onclick="alert('Guardado ✓')">💾 Guardar</button></div>
   </div>`;
 }
@@ -1138,7 +1054,6 @@ function renderMiResumen() {
   const totMes=Array.from({length:12},(_,m)=>UNS.reduce((s,u)=>s+get(u.key,m),0)-getDesc(id,m));
   const alc=alcance_tls[id]?.[mesActual]||0;
   const totalAnio=totMes.reduce((s,t)=>s+t,0);
-
   return `
   <div class="stats-grid">
     <div class="stat-card navy"><div class="stat-label">Total año acumulado</div><div class="stat-value">${fmtN(totalAnio)}</div><div class="stat-sub">Gs. — hasta ${MESES[mesActual]}</div></div>
@@ -1159,23 +1074,19 @@ function renderMiResumen() {
     </div>
   </div>
   <div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-size:12px;color:var(--text3)">
-    ℹ <strong>TLS:</strong> comisión calculada según % de alcance acumulado — puede ajustarse si el área lo solicita. <strong>CNT e iRH:</strong> montos habilitados por cada área. <strong>OUT y +Marka:</strong> cargados por administración.
+    ℹ <strong>TLS:</strong> calculado según % de alcance acumulado — puede ajustarse si el área lo solicita. <strong>CNT e iRH:</strong> montos habilitados por cada área. <strong>OUT y +Marka:</strong> cargados por administración.
   </div>`;
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// MIS FACTURAS (EC) — con pestañas por UN
+// MIS FACTURAS (EC)
 // ═══════════════════════════════════════════════════════════════════════════
 function renderMisFacturas(ecId, mesDefault) {
   ecId = ecId || getECId();
   const todasFacts = facturas_ec[ecId] || [];
   const UNS_DISPONIBLES = [...new Set(todasFacts.map(f=>f.tipo))];
-
   function buildTab(filtroUN, filtroMes) {
-    const facts = todasFacts.filter(f =>
-      (filtroUN==='todas'||f.tipo===filtroUN) &&
-      (filtroMes===null||f.mes===filtroMes+1)
-    );
+    const facts = todasFacts.filter(f=>(filtroUN==='todas'||f.tipo===filtroUN)&&(filtroMes===null||f.mes===filtroMes+1));
     if(!facts.length) return `<tr><td colspan="9" style="text-align:center;padding:28px;color:var(--text3)">Sin facturas para este filtro.</td></tr>`;
     return facts.map(f=>{
       const desfase=f.anio_em<2026;
@@ -1197,20 +1108,16 @@ function renderMisFacturas(ecId, mesDefault) {
       </tr>`;
     }).join('');
   }
-
   const totalHab=todasFacts.filter(f=>f.habilita&&f.mes===mesActual+1).reduce((s,f)=>s+f.com,0);
   const totalNoHab=todasFacts.filter(f=>f.habilita===false&&f.mes===mesActual+1).reduce((s,f)=>s+f.no_hab,0);
-
   let activoUN='todas';
   let activoMes=mesDefault??mesActual;
-
   window._refreshFacturas=function(un,mes){
     activoUN=un; activoMes=mes;
     document.getElementById('tbody-facts').innerHTML=buildTab(un,mes);
     document.querySelectorAll('.tab-un').forEach(t=>t.classList.toggle('active',t.dataset.un===un));
     document.getElementById('mes-fact-sel').value=mes+1;
   };
-
   return `
   <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px">
     <div class="tabs" style="margin:0">
@@ -1256,15 +1163,15 @@ function renderMiAlcance() {
   const id=getECId();
   const ec=ECS.find(e=>e.id===id)||ECS[0];
   const rows=[
-    {label:'Objetivo del mes (Gs.)',    vals:Array.from({length:12},()=>Math.round(ec.obj_tls/12)), fmt:fmtN, bold:false, bg:'#fffbeb'},
-    {label:'Facturación TLS mes (Gs.)',  vals:tls_com[id]?.map(v=>v>0?v*10:0)||[], fmt:fmtN, bold:false, bg:''},
-    {label:'% Alcance acumulado',        vals:alcance_tls[id]?.map(a=>(a*100).toFixed(1)+'%')||[], fmt:v=>v, bold:false, bg:'#ededf7', colorFn:(_,i)=>alcance_tls[id]?.[i]>=0.91?'var(--green)':alcance_tls[id]?.[i]>=0.6?'var(--jobs-gold)':'var(--red)'},
-    {label:'% Comisión aplicable',       vals:alcance_tls[id]?.map(a=>a>0?pctLbl(a):'0%')||[], fmt:v=>v, bold:false, bg:''},
-    {label:'COMISIÓN DEL MES (Gs.)',     vals:tls_com[id]||[], fmt:fmtN, bold:true, bg:'#f0fdf4'},
+    {label:'Objetivo del mes (Gs.)',    vals:Array.from({length:12},()=>Math.round(ec.obj_tls/12)),fmt:fmtN,bold:false,bg:'#fffbeb'},
+    {label:'Facturación TLS mes (Gs.)',  vals:tls_com[id]?.map(v=>v>0?v*10:0)||[],fmt:fmtN,bold:false,bg:''},
+    {label:'% Alcance acumulado',        vals:alcance_tls[id]?.map(a=>(a*100).toFixed(1)+'%')||[],fmt:v=>v,bold:false,bg:'#ededf7',colorFn:(_,i)=>alcance_tls[id]?.[i]>=0.91?'var(--green)':alcance_tls[id]?.[i]>=0.6?'var(--jobs-gold)':'var(--red)'},
+    {label:'% Comisión aplicable',       vals:alcance_tls[id]?.map(a=>a>0?pctLbl(a):'0%')||[],fmt:v=>v,bold:false,bg:''},
+    {label:'COMISIÓN DEL MES (Gs.)',     vals:tls_com[id]||[],fmt:fmtN,bold:true,bg:'#f0fdf4'},
   ];
   return `
   <div class="card" style="margin-bottom:16px">
-    <div class="card-header"><div class="card-title">Alcance TLS — ${ec.nombre}</div><div class="card-sub">El % de comisión se determina por el alcance acumulado vs el objetivo. Tramos: &lt;60%→0% · 60-90%→8% · 91-119%→10% · ≥120%→12%</div></div>
+    <div class="card-header"><div class="card-title">Alcance TLS — ${ec.nombre}</div><div class="card-sub">El % se determina por el alcance acumulado vs el objetivo. Tramos: &lt;60%→0% · 60-90%→8% · 91-119%→10% · ≥120%→12%</div></div>
     <div style="overflow-x:auto">
       <table style="min-width:900px">
         <thead><tr><th style="width:220px">Indicador</th>${MESES.map(m=>`<th>${m}</th>`).join('')}</tr></thead>
@@ -1280,7 +1187,7 @@ function renderMiAlcance() {
     </div>
   </div>
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
-    ${[['<60%','0%','No habilita','#fee2e2','var(--red)'],['60-90%','8%','Tramo básico','#fef3c7',`var(--jobs-gold)`],['91-119%','10%','Tramo medio','#ededf7','var(--jobs-navy)'],['≥120%','12%','Tramo máximo','#dcfce7','var(--green)']].map(([rng,pct,lbl,bg,clr])=>`
+    ${[['<60%','0%','No habilita','#fee2e2','var(--red)'],['60-90%','8%','Tramo básico','#fef3c7','var(--jobs-gold)'],['91-119%','10%','Tramo medio','#ededf7','var(--jobs-navy)'],['≥120%','12%','Tramo máximo','#dcfce7','var(--green)']].map(([rng,pct,lbl,bg,clr])=>`
     <div style="background:${bg};border-radius:10px;padding:14px;text-align:center">
       <div style="font-size:10px;color:${clr};font-weight:700;margin-bottom:4px">${rng}</div>
       <div style="font-size:24px;font-weight:800;color:${clr}">${pct}</div>
@@ -1336,9 +1243,7 @@ function renderUNResumen() {
   </div>`;
 }
 
-function renderUNHistorico() {
-  return renderUNResumen();
-}
+function renderUNHistorico() { return renderUNResumen(); }
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CONFIG
@@ -1366,18 +1271,13 @@ function renderConfig() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// GESTIÓN DE USUARIOS (solo admin)
+// GESTIÓN DE USUARIOS
 // ═══════════════════════════════════════════════════════════════════════════
 function renderAdminUsuarios() {
-  // Renderiza desde los USUARIOS en memoria
   function tablaUsuarios() {
     return Object.entries(USUARIOS).map(([uid, u], idx) => {
-      const tipoBadge = {
-        admin: '<span class="badge" style="background:#ededf7;color:#24224B">Admin</span>',
-        ec:    '<span class="badge badge-cnt">Ejecutiva</span>',
-        un:    '<span class="badge" style="background:#fef3c7;color:#92400e">Unidad de Negocio</span>',
-      }[u.tipo] || '';
-      const alt = idx % 2 === 0;
+      const tipoBadge={admin:'<span class="badge" style="background:#ededf7;color:#24224B">Admin</span>',ec:'<span class="badge badge-cnt">Ejecutiva</span>',un:'<span class="badge" style="background:#fef3c7;color:#92400e">Unidad de Negocio</span>'}[u.tipo]||'';
+      const alt=idx%2===0;
       return `
       <tr style="${alt?'background:var(--bg3)':''}">
         <td class="td-bold">${u.nombre}</td>
@@ -1386,190 +1286,129 @@ function renderAdminUsuarios() {
         <td style="font-size:12px;color:var(--text3)">${u.rol}</td>
         <td style="text-align:center">
           <div style="display:inline-flex;align-items:center;gap:6px">
-            <input id="edit_nombre_${uid}" class="input-obs"
-              style="width:150px;font-size:12px;padding:4px 8px"
-              value="${u.nombre}" placeholder="Nuevo nombre">
+            <input id="edit_nombre_${uid}" class="input-obs" style="width:150px;font-size:12px;padding:4px 8px" value="${u.nombre}" placeholder="Nuevo nombre">
             <button class="btn-sm" onclick="editarNombre('${uid}')">Guardar</button>
           </div>
         </td>
         <td style="text-align:center">
           <div style="display:inline-flex;align-items:center;gap:6px">
-            <input id="pass_${uid}" type="password"
-              style="width:130px;border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:12px;font-family:var(--font);background:var(--input-bg);color:var(--text)"
-              placeholder="Nueva contraseña" autocomplete="new-password">
+            <input id="pass_${uid}" type="password" style="width:130px;border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:12px;font-family:var(--font);background:var(--input-bg);color:var(--text)" placeholder="Nueva contraseña" autocomplete="new-password">
             <button class="btn-sm" onclick="cambiarPass('${uid}')">Cambiar</button>
           </div>
         </td>
         <td style="text-align:center">
-          ${uid === 'admin' ? '<span style="font-size:11px;color:var(--text3)">No eliminable</span>' :
-            `<button class="btn-sm" style="color:var(--red);border-color:#fecaca"
-              onclick="eliminarUsuario('${uid}','${u.nombre}')">✕ Eliminar</button>`}
+          ${uid==='admin'?'<span style="font-size:11px;color:var(--text3)">No eliminable</span>':`<button class="btn-sm" style="color:var(--red);border-color:#fecaca" onclick="eliminarUsuario('${uid}','${u.nombre}')">✕ Eliminar</button>`}
         </td>
       </tr>`;
     }).join('');
   }
 
   window.cambiarPass = function(uid) {
-    const input = document.getElementById('pass_' + uid);
-    const nueva = input.value.trim();
-    if (!nueva || nueva.length < 4) {
-      alert('La contraseña debe tener al menos 4 caracteres.');
-      return;
-    }
-    USUARIOS[uid].pass = nueva;
-    input.value = '';
-    input.placeholder = '✓ Cambiada';
-    input.style.borderColor = 'var(--green)';
-    setTimeout(() => { input.placeholder = 'Nueva contraseña'; input.style.borderColor = ''; }, 2000);
+    const input=document.getElementById('pass_'+uid);
+    const nueva=input.value.trim();
+    if(!nueva||nueva.length<4){ alert('La contraseña debe tener al menos 4 caracteres.'); return; }
+    USUARIOS[uid].pass=nueva;
+    input.value=''; input.placeholder='✓ Cambiada'; input.style.borderColor='var(--green)';
+    setTimeout(()=>{ input.placeholder='Nueva contraseña'; input.style.borderColor=''; },2000);
   };
 
   window.eliminarUsuario = function(uid, nombre) {
-    if (!confirm('¿Eliminar al usuario ' + nombre + '? Esta acción no se puede deshacer.')) return;
+    if(!confirm('¿Eliminar al usuario '+nombre+'? Esta acción no se puede deshacer.')) return;
     delete USUARIOS[uid];
+    guardarUsuariosExtra();
+    actualizarSelectLogin();
     showView('admin-usuarios');
   };
 
   window.crearUsuario = function() {
-    const nombre  = document.getElementById('nu-nombre').value.trim();
-    const tipo    = document.getElementById('nu-tipo').value;
-    const rol     = document.getElementById('nu-rol').value.trim();
-    const pass    = document.getElementById('nu-pass').value.trim();
-    const un      = document.getElementById('nu-un')?.value || '';
-
-    if (!nombre || !tipo || !pass) { alert('Completá nombre, tipo y contraseña.'); return; }
-    if (pass.length < 4) { alert('La contraseña debe tener al menos 4 caracteres.'); return; }
-
-    // Generar uid único
-    const base = tipo + '_' + nombre.toLowerCase().replace(/\s+/g,'_').replace(/[^a-z0-9_]/g,'');
-    let uid = base; let i = 2;
-    while (USUARIOS[uid]) { uid = base + '_' + i; i++; }
-
-    // Avatar: primeras 2 letras del nombre
-    const partes = nombre.split(' ');
-    const avatar = (partes[0][0] + (partes[1]?.[0] || '')).toUpperCase();
-    const avatarClass = tipo === 'admin' ? 'avatar-admin' : tipo === 'ec' ? 'avatar-ec' : 'avatar-un';
-    const rolFinal = rol || (tipo==='admin'?'Administrador':tipo==='ec'?'Ejecutiva Comercial':'Unidad de Negocio');
-
-    USUARIOS[uid] = { pass, nombre, rol: rolFinal, tipo, avatar, avatarClass, ...(un ? {un} : {}) };
-
-    // Persistir y actualizar select
+    const nombre=document.getElementById('nu-nombre').value.trim();
+    const tipo=document.getElementById('nu-tipo').value;
+    const rol=document.getElementById('nu-rol').value.trim();
+    const pass=document.getElementById('nu-pass').value.trim();
+    const un=document.getElementById('nu-un')?.value||'';
+    if(!nombre||!tipo||!pass){ alert('Completá nombre, tipo y contraseña.'); return; }
+    if(pass.length<4){ alert('La contraseña debe tener al menos 4 caracteres.'); return; }
+    const base=tipo+'_'+nombre.toLowerCase().replace(/\s+/g,'_').replace(/[^a-z0-9_]/g,'');
+    let uid=base; let i=2;
+    while(USUARIOS[uid]){ uid=base+'_'+i; i++; }
+    const partes=nombre.split(' ');
+    const avatar=(partes[0][0]+(partes[1]?.[0]||'')).toUpperCase();
+    const avatarClass=tipo==='admin'?'avatar-admin':tipo==='ec'?'avatar-ec':'avatar-un';
+    const rolFinal=rol||(tipo==='admin'?'Administrador':tipo==='ec'?'Ejecutiva Comercial':'Unidad de Negocio');
+    USUARIOS[uid]={pass,nombre,rol:rolFinal,tipo,avatar,avatarClass,...(un?{un}:{})};
     guardarUsuariosExtra();
     actualizarSelectLogin();
-
-    // Limpiar form
-    ['nu-nombre','nu-rol','nu-pass'].forEach(id => document.getElementById(id).value = '');
-    document.getElementById('nu-tipo').value = '';
-    document.getElementById('nu-un-wrap').style.display = 'none';
-
+    ['nu-nombre','nu-rol','nu-pass'].forEach(id=>document.getElementById(id).value='');
+    document.getElementById('nu-tipo').value='';
+    document.getElementById('nu-un-wrap').style.display='none';
     showView('admin-usuarios');
   };
 
   window.toggleUN = function() {
-    const tipo = document.getElementById('nu-tipo').value;
-    document.getElementById('nu-un-wrap').style.display = tipo === 'un' ? 'block' : 'none';
+    document.getElementById('nu-un-wrap').style.display=document.getElementById('nu-tipo').value==='un'?'block':'none';
   };
 
-  // Guardar en localStorage: usuarios extra + usuarios base con nombre modificado
   window.guardarUsuariosExtra = function() {
-    const baseDefaults = {
-      admin:'Ximena Pedrero', ec_pamela:'Pamela Gonzalez', ec_andrea:'Andrea Zarza',
-      ec_blanca_s:'Blanca Sosa', ec_blanca_q:'Blanca Quiñonez', ec_maria_paz:'Maria Paz Rolon',
-      ec_paula:'Paula Viveros', ec_mj:'Maria Jose Gonzalez', un_tls:'Área TLS',
-      un_cnt:'Área CNT', un_irh:'Área iRH', un_out:'Área OUT', un_marka:'Área +Marka'
-    };
-    const toSave = {};
-    Object.keys(USUARIOS).forEach(uid => {
-      // Guardar si es usuario extra O si es base con nombre modificado
-      if (!baseDefaults[uid] || USUARIOS[uid].nombre !== baseDefaults[uid]) {
-        toSave[uid] = USUARIOS[uid];
-      }
+    const baseDefaults={admin:'Ximena Pedrero',ec_pamela:'Pamela Gonzalez',ec_andrea:'Andrea Zarza',ec_blanca_s:'Blanca Sosa',ec_blanca_q:'Blanca Quiñonez',ec_maria_paz:'Maria Paz Rolon',ec_paula:'Paula Viveros',ec_mj:'Maria Jose Gonzalez',un_tls:'Área TLS',un_cnt:'Área CNT',un_irh:'Área iRH',un_out:'Área OUT',un_marka:'Área +Marka'};
+    const toSave={};
+    Object.keys(USUARIOS).forEach(uid=>{
+      if(!baseDefaults[uid]||USUARIOS[uid].nombre!==baseDefaults[uid]) toSave[uid]=USUARIOS[uid];
     });
-    try { localStorage.setItem('jobs_usuarios', JSON.stringify(toSave)); } catch(e) {}
+    try{ localStorage.setItem('jobs_usuarios',JSON.stringify(toSave)); }catch(e){}
   };
 
-  // Regenerar el select del login con todos los USUARIOS actuales
   window.actualizarSelectLogin = function() {
-    const sel = document.getElementById('login-user');
-    if (!sel) return;
-    const grupos = { admin: [], ec: [], un: [] };
-    Object.entries(USUARIOS).forEach(([uid, u]) => { if (grupos[u.tipo]) grupos[u.tipo].push({uid, nombre: u.nombre}); });
-    sel.innerHTML = `<option value="">Seleccioná tu perfil...</option>
+    const sel=document.getElementById('login-user');
+    if(!sel) return;
+    const grupos={admin:[],ec:[],un:[]};
+    Object.entries(USUARIOS).forEach(([uid,u])=>{ if(grupos[u.tipo]) grupos[u.tipo].push({uid,nombre:u.nombre}); });
+    sel.innerHTML=`<option value="">Seleccioná tu perfil...</option>
       <optgroup label="Administración">${grupos.admin.map(u=>`<option value="${u.uid}">${u.nombre}</option>`).join('')}</optgroup>
       <optgroup label="Ejecutivas Comerciales">${grupos.ec.map(u=>`<option value="${u.uid}">${u.nombre}</option>`).join('')}</optgroup>
       <optgroup label="Unidades de Negocio">${grupos.un.map(u=>`<option value="${u.uid}">${u.nombre}</option>`).join('')}</optgroup>`;
   };
 
-  // Editar nombre de usuario
   window.editarNombre = function(uid) {
-    const input = document.getElementById('edit_nombre_' + uid);
-    const nuevo = input.value.trim();
-    if (!nuevo) { alert('El nombre no puede estar vacío.'); return; }
-    USUARIOS[uid].nombre = nuevo;
-    const partes = nuevo.split(' ');
-    const nuevoAvatar = (partes[0][0] + (partes[1]?.[0] || '')).toUpperCase();
-    USUARIOS[uid].avatar = nuevoAvatar;
-
-    // Si el usuario editado es el que está logueado, actualizar currentUser y la sidebar
-    if (currentUser && currentUser.uid === uid) {
-      currentUser.nombre = nuevo;
-      currentUser.avatar = nuevoAvatar;
-      document.getElementById('sidebar-name').textContent = nuevo;
-      const av = document.getElementById('sidebar-avatar');
-      av.textContent = nuevoAvatar;
+    const input=document.getElementById('edit_nombre_'+uid);
+    const nuevo=input.value.trim();
+    if(!nuevo){ alert('El nombre no puede estar vacío.'); return; }
+    USUARIOS[uid].nombre=nuevo;
+    const partes=nuevo.split(' ');
+    const nuevoAvatar=(partes[0][0]+(partes[1]?.[0]||'')).toUpperCase();
+    USUARIOS[uid].avatar=nuevoAvatar;
+    if(currentUser&&currentUser.uid===uid){
+      currentUser.nombre=nuevo; currentUser.avatar=nuevoAvatar;
+      document.getElementById('sidebar-name').textContent=nuevo;
+      document.getElementById('sidebar-avatar').textContent=nuevoAvatar;
     }
-
-    // Si el usuario editado es el admin que está impersonando, actualizar adminUser también
-    if (adminUser && adminUser.uid === uid) {
-      adminUser.nombre = nuevo;
-      adminUser.avatar = nuevoAvatar;
-    }
-
+    if(adminUser&&adminUser.uid===uid){ adminUser.nombre=nuevo; adminUser.avatar=nuevoAvatar; }
     guardarUsuariosExtra();
     actualizarSelectLogin();
-    input.style.borderColor = 'var(--green-light)';
-    setTimeout(() => showView('admin-usuarios'), 700);
+    input.style.borderColor='var(--green)';
+    setTimeout(()=>showView('admin-usuarios'),700);
   };
 
-  const UNS = ['TLS','CNT','IRH','OUT','MARKA'];
-
+  const UNS=['TLS','CNT','IRH','OUT','MARKA'];
   return `
-  <!-- Tabla de usuarios existentes -->
   <div class="card" style="margin-bottom:18px">
     <div class="card-header">
-      <div><div class="card-title">👥 Usuarios del sistema</div>
-      <div class="card-sub">Solo el administrador puede ver y modificar esta sección</div></div>
+      <div><div class="card-title">👥 Usuarios del sistema</div><div class="card-sub">Solo el administrador puede ver y modificar esta sección</div></div>
       <div style="font-family:var(--mono);font-size:12px;color:var(--text3)">${Object.keys(USUARIOS).length} usuarios registrados</div>
     </div>
     <div style="overflow-x:auto">
       <table id="tabla-usuarios">
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>ID de usuario</th>
-            <th>Tipo</th>
-            <th>Rol</th>
-            <th style="text-align:center">Editar nombre</th>
-            <th style="text-align:center">Cambiar contraseña</th>
-            <th style="text-align:center">Acción</th>
-          </tr>
-        </thead>
+        <thead><tr><th>Nombre</th><th>ID de usuario</th><th>Tipo</th><th>Rol</th><th style="text-align:center">Editar nombre</th><th style="text-align:center">Cambiar contraseña</th><th style="text-align:center">Acción</th></tr></thead>
         <tbody>${tablaUsuarios()}</tbody>
       </table>
     </div>
   </div>
-
-  <!-- Formulario crear usuario -->
   <div class="card">
-    <div class="card-header">
-      <div><div class="card-title">➕ Crear nuevo usuario</div>
-      <div class="card-sub">El ID de acceso se genera automáticamente a partir del nombre</div></div>
-    </div>
+    <div class="card-header"><div><div class="card-title">➕ Crear nuevo usuario</div><div class="card-sub">El ID de acceso se genera automáticamente</div></div></div>
     <div style="padding:18px 20px">
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px">
         <div>
           <div style="font-size:11px;font-weight:600;color:var(--text3);margin-bottom:5px;text-transform:uppercase;letter-spacing:0.8px">Nombre completo</div>
-          <input id="nu-nombre" class="input-obs" style="width:100%;font-size:13px;padding:8px 12px"
-            placeholder="Ej: Camila Gonzalez">
+          <input id="nu-nombre" class="input-obs" style="width:100%;font-size:13px;padding:8px 12px" placeholder="Ej: Camila Gonzalez">
         </div>
         <div>
           <div style="font-size:11px;font-weight:600;color:var(--text3);margin-bottom:5px;text-transform:uppercase;letter-spacing:0.8px">Tipo de usuario</div>
@@ -1582,34 +1421,25 @@ function renderAdminUsuarios() {
         </div>
         <div id="nu-un-wrap" style="display:none">
           <div style="font-size:11px;font-weight:600;color:var(--text3);margin-bottom:5px;text-transform:uppercase;letter-spacing:0.8px">Área UN</div>
-          <select id="nu-un" class="select-std" style="width:100%;font-size:13px;padding:8px 12px">
-            ${UNS.map(u => `<option value="${u}">${u}</option>`).join('')}
-          </select>
+          <select id="nu-un" class="select-std" style="width:100%;font-size:13px;padding:8px 12px">${UNS.map(u=>`<option value="${u}">${u}</option>`).join('')}</select>
         </div>
         <div>
           <div style="font-size:11px;font-weight:600;color:var(--text3);margin-bottom:5px;text-transform:uppercase;letter-spacing:0.8px">Rol (opcional)</div>
-          <input id="nu-rol" class="input-obs" style="width:100%;font-size:13px;padding:8px 12px"
-            placeholder="Ej: Ejecutiva Comercial Senior">
+          <input id="nu-rol" class="input-obs" style="width:100%;font-size:13px;padding:8px 12px" placeholder="Ej: Ejecutiva Comercial Senior">
         </div>
         <div>
           <div style="font-size:11px;font-weight:600;color:var(--text3);margin-bottom:5px;text-transform:uppercase;letter-spacing:0.8px">Contraseña inicial</div>
-          <input id="nu-pass" type="password" class="input-obs" style="width:100%;font-size:13px;padding:8px 12px"
-            placeholder="Mínimo 4 caracteres" autocomplete="new-password">
+          <input id="nu-pass" type="password" class="input-obs" style="width:100%;font-size:13px;padding:8px 12px" placeholder="Mínimo 4 caracteres" autocomplete="new-password">
         </div>
       </div>
       <div style="display:flex;align-items:center;gap:10px">
-        <button class="btn-save" style="padding:9px 24px;font-size:13px" onclick="crearUsuario()">
-          ➕ Crear usuario
-        </button>
-        <span style="font-size:12px;color:var(--text3)">
-          El ID de acceso se genera automáticamente. Podés compartirlo con el usuario junto con su contraseña.
-        </span>
+        <button class="btn-save" style="padding:9px 24px;font-size:13px" onclick="crearUsuario()">➕ Crear usuario</button>
+        <span style="font-size:12px;color:var(--text3)">El ID de acceso se genera automáticamente. Compartilo con el usuario junto con su contraseña.</span>
       </div>
     </div>
   </div>
-
   <div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-size:12px;color:var(--text3)">
-    ⚠ <strong>Importante:</strong> Los usuarios nuevos y cambios de nombre se guardan en <strong>localStorage</strong> de este navegador — persisten al cerrar sesión y al recargar la página. Los cambios de contraseña se guardan solo en memoria por sesión. Cuando conectemos el Google Sheets, todo se guardará permanentemente en una hoja protegida.
+    ⚠ <strong>Importante:</strong> Los usuarios nuevos y cambios de nombre se guardan en <strong>localStorage</strong> — persisten al cerrar sesión y recargar. Los cambios de contraseña se guardan en memoria por sesión. Cuando conectemos el Apps Script, todo se guardará permanentemente en el Google Sheets.
   </div>`;
 }
 </script>
